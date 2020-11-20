@@ -1,6 +1,4 @@
 module.exports = {
-  i18n: {
-    locales: ["en-us", "fr", "nl-NL"],
-    defaultLocale: "en-us",
-  },
+  // eslint-disable-next-line global-require
+  i18n: require("./config/locales.js"),
 };
