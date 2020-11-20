@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import React from "react";
+import React, { FunctionComponent } from "react";
 import Footer, {
   FOOTER_LINKS_FRAGMENT,
   LEGAL_FRAGMENT,
@@ -25,7 +25,12 @@ export const LAYOUT_QUERY = gql`
   ${SOCIAL_FRAGMENT}
 `;
 
-const Layout = ({ children }): JSX.Element => {
+interface IWrapperComponentProps {
+  children: React.ReactNode;
+}
+type WrapperComponent = FunctionComponent<IWrapperComponentProps>;
+
+const Layout: WrapperComponent = ({ children }) => {
   return (
     <>
       <Nav />
