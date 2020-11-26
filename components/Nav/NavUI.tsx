@@ -13,7 +13,7 @@ const NavUI = ({
   logoUrl,
 }: INavUIProps): JSX.Element => {
   return (
-    <nav className="sticky bg-white top-0 px-32">
+    <nav className="sticky bg-white top-0 px-32 z-50">
       <div className="flex">
         <div className="logo my-10 mr-20">
           <a href="/">
