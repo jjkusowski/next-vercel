@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint:pages": "eslint pages",
+    "lint:components": "eslint components",
+    "lint:fix:pages": "eslint --fix pages",
+    "lint:fix:components": "eslint --fix components"
   },
   "dependencies": {
     "@apollo/client": "^3.2.7",
