@@ -42,3 +42,5 @@ Define application colors and fonts once in [tailwind config](./tailwind.config.
 Apollo client and apollo client hooks are used to query prismic CMS and populate pages with data. NextJS' `getStaticProps` function is only available at the page level, so it's "one query to rule them all".
 
 To break up the mono-queries, we can abstract gql queries into fragments at the component level, and import them at the top level to initiate the mono-query. Component data needs are collocated with the component code, and each component uses apollo's `useQuery` hook to query into the apollo cache to retrieve required data.
+
+Component-level queries are not allowed to pass fragments to `useQuery`, which is the only place where significant code duplication is necessary.

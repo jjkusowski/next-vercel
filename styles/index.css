@@ -13,6 +13,12 @@
   p {
     @apply text-xl;
   }
+  a {
+    @apply underline;
+  }
+  button:focus {
+    @apply outline-none;
+  }
 }
 
 /* Write your own custom base styles here */
@@ -31,7 +37,11 @@
 }
 
 .section {
-  @apply my-20;
+  @apply my-10 py-10;
+}
+
+.btn-blue-outline {
+  @apply btn-blue bg-white border-blue border text-blue no-underline;
 }
 
 /* Start purging... */

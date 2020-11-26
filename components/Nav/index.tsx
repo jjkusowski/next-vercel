@@ -47,7 +47,7 @@ const NAV_QUERY = gql`
   ${NAV_FRAGMENT}
 `;
 
-const Nav = (): JSX.Element => {
+const Nav = ({ ctaText }): JSX.Element => {
   const { data } = useQuery(NAV_QUERY);
 
   const { layout } = data;
@@ -65,6 +65,8 @@ const Nav = (): JSX.Element => {
   const leftNavItems: INavItem[] = leftItems.map((item) => getNavItem(item));
 
   const rightNavItems: INavItem[] = rightItems.map((item) => getNavItem(item));
+
+  rightNavItems[rightNavItems.length - 1].label = ctaText;
 
   return (
     <NavUI

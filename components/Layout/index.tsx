@@ -27,13 +27,14 @@ export const LAYOUT_QUERY = gql`
 
 interface IWrapperComponentProps {
   children: React.ReactNode;
+  ctaText: string;
 }
 type WrapperComponent = FunctionComponent<IWrapperComponentProps>;
 
-const Layout: WrapperComponent = ({ children }) => {
+const Layout: WrapperComponent = ({ children, ctaText }) => {
   return (
     <>
-      <Nav />
+      <Nav ctaText={ctaText} />
       <main>{children}</main>
       <Footer />
     </>

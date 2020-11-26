@@ -13,12 +13,19 @@ const nullClick = (e) => {
 
 const getClickHandler = (id: string) => onClickHandlers[id] || nullClick;
 
+interface ISubMenuItem {
+  description: string;
+  isPartitioned: boolean;
+  label: string;
+  url: string;
+}
 export interface INavItem {
   label: string;
   url: string;
   id: string;
   type: string;
   alignment: string;
+  subMenuItems: ISubMenuItem[];
 }
 
 interface INavItemProps {
@@ -34,7 +41,7 @@ interface INavItemComponentProps {
 type NavItemComponent = (navItem: INavItemComponentProps) => JSX.Element;
 
 const Dropdown: NavItemComponent = ({ url, label }) => (
-  <a href={url} onClick={nullClick}>
+  <a className="no-underline" href={url} onClick={nullClick}>
     {label}*
   </a>
 );
@@ -42,7 +49,7 @@ const Dropdown: NavItemComponent = ({ url, label }) => (
 const Link: NavItemComponent = ({ url, label, id }) => {
   const clickHandler = getClickHandler(id);
   return (
-    <a href={url} onClick={clickHandler}>
+    <a className="no-underline" href={url} onClick={clickHandler}>
       {label}
     </a>
   );
@@ -65,6 +72,7 @@ export const getNavItem = (item: any): INavItem => {
     type: item.primary.nav_item_type,
     alignment: item.primary.nav_item_alignment,
     id: item.primary.nav_item_id || "",
+    subMenuItems: item.fields,
   };
 };
 
@@ -81,8 +89,10 @@ const NavItem = (props: INavItemProps): JSX.Element => {
   const { url, label, type, alignment, id } = item;
   const Component = mapItemToComponent(type);
 
+  const alignmentClass = alignment === "left" ? "mr-10" : "ml-10";
+
   return (
-    <li className={alignment === "left" ? "mr-10" : "ml-10"} key={label}>
+    <li className={`${alignmentClass}`} key={label}>
       <Component label={label} url={url} id={id} />
     </li>
   );

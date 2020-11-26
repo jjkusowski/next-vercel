@@ -10,14 +10,18 @@
   "dependencies": {
     "@apollo/client": "^3.2.7",
     "apollo-link-prismic": "^1.0.8",
+    "lodash": "^4.17.20",
     "next": "10.0.1",
     "postcss-flexbugs-fixes": "^5.0.1",
     "postcss-preset-env": "^6.7.0",
+    "prismic-javascript": "^3.0.2",
+    "prismic-reactjs": "^1.3.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "tailwindcss": "^1.9.6"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.165",
     "@types/node": "^11.15.36",
     "@types/react": "^16.9.56",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
