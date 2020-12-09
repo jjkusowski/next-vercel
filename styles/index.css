@@ -2,7 +2,7 @@
 
 @layer base {
   h1 {
-    @apply text-5xl block;
+    @apply text-5xl block leading-tight;
   }
   h2 {
     @apply text-4xl block;
@@ -42,6 +42,17 @@
 
 .btn-blue-outline {
   @apply btn-blue bg-white border-blue border text-blue no-underline;
+}
+
+span.circle {
+  @apply bg-circle bg-center	bg-no-repeat	bg-contain	p-8 -m-8;
+}
+
+span.anchor {
+  display: block;
+  position: relative;
+  top: -80px;
+  visibility: hidden;
 }
 
 /* Start purging... */

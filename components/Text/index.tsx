@@ -1,18 +1,18 @@
 import React from "react";
-import { LinkResolver, RichText, RichTextBlock } from "prismic-reactjs";
+import { RichText, RichTextBlock, RichTextProps } from "prismic-reactjs";
 
 type StyledRichTextBlock = RichTextBlock & { label?: string };
 
-interface IText {
+interface IText extends RichTextProps {
   className?: string;
   children: StyledRichTextBlock[];
-  linkResolver: LinkResolver;
 }
 
 const Text = ({
   className = "",
   children,
   linkResolver,
+  ...rest
 }: IText): JSX.Element => {
   if (className) {
     children.forEach((child) => {
@@ -20,7 +20,7 @@ const Text = ({
       child.label = className;
     });
   }
-  return <RichText render={children} linkResolver={linkResolver} />;
+  return <RichText render={children} linkResolver={linkResolver} {...rest} />;
 };
 
 export default Text;

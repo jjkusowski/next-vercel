@@ -28,25 +28,32 @@ interface IHeroProps {
 const HeroUI = ({ heroData }: IHeroProps): JSX.Element => {
   const { image, title, header, copy } = heroData;
   return (
-    <section className="hero">
-      <div className="container section text-center">
-        <div className="title">
-          <Text>{title}</Text>
+    <section className="hero section">
+      <div className="container">
+        <div className="text-center md:text-left md:w-1/2 md:ml-0">
+          <div className="title">
+            <Text>{title}</Text>
+          </div>
+          <div className="header">
+            <Text>{header}</Text>
+          </div>
+          <div
+            style={{ zIndex: -1 }}
+            className="img md:absolute md:right-0 md:w-2/3 md:top-0 md:mt-56"
+          >
+            <Image
+              src={image.url}
+              height={image.dimensions.height}
+              width={image.dimensions.width}
+            />
+          </div>
+          <div className="copy">
+            <Text>{copy}</Text>
+          </div>
         </div>
-        <div className="header">
-          <Text>{header}</Text>
+        <div className="md:w-full">
+          <SignupForm />
         </div>
-        <div className="img">
-          <Image
-            src={image.url}
-            height={image.dimensions.height}
-            width={image.dimensions.width}
-          />
-        </div>
-        <div className="copy">
-          <Text>{copy}</Text>
-        </div>
-        <SignupForm />
         <HeroCallToAction />
       </div>
     </section>

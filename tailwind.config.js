@@ -5,6 +5,9 @@ module.exports = {
   },
   purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    backgroundImage: () => ({
+      circle: "url(../public/circle.svg)",
+    }),
     container: {
       padding: "2rem",
       center: true,

@@ -27,7 +27,7 @@ export const LAYOUT_QUERY = gql`
 
 interface IWrapperComponentProps {
   children: React.ReactNode;
-  ctaText: string;
+  ctaText?: string;
 }
 type WrapperComponent = FunctionComponent<IWrapperComponentProps>;
 
@@ -35,7 +35,7 @@ const Layout: WrapperComponent = ({ children, ctaText }) => {
   return (
     <>
       <Nav ctaText={ctaText} />
-      <main>{children}</main>
+      <main className="bg-gray-100">{children}</main>
       <Footer />
     </>
   );

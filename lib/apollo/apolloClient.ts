@@ -48,10 +48,7 @@ export function useApollo(
   return store;
 }
 
-export async function queryApollo(
-  query,
-  variables = {}
-): Promise<ApolloClient<NormalizedCacheObject>> {
+export async function queryApollo(query, variables = {}) {
   const apClient = initializeApollo();
 
   await apClient.query({

@@ -2,14 +2,14 @@
 import { GetStaticProps } from "next";
 import React from "react";
 import Prismic from "prismic-javascript";
-import { filter, reject } from "lodash";
+import { reject } from "lodash";
 import Image from "next/image";
-import Layout from "../components/Layout";
-import PageContext from "../state/PageContext";
-import Hero from "../components/Hero";
-import usePageBodyData from "../hooks/usePageBodyData";
-import Text from "../components/Text";
-import { getLayoutData } from "../data/layout";
+import { queryApollo } from "../../lib/apollo/apolloClient";
+import Layout, { LAYOUT_QUERY } from "../../components/Layout";
+import PageContext from "../../state/PageContext";
+import Hero from "../../components/Hero";
+import usePageBodyData from "../../hooks/usePageBodyData";
+import Text from "../../components/Text";
 
 export const getStaticProps: GetStaticProps = async () => {
   const restQuery = Prismic.getApi("https://webex.cdn.prismic.io/api/v2").then(
@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async () => {
   );
 
   const [apolloClient, { data: pageData }] = await Promise.all([
-    getLayoutData(),
+    queryApollo(LAYOUT_QUERY),
     restQuery,
   ]);
 

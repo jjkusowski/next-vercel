@@ -20,7 +20,7 @@ const heroResolver = resolverFactory(dataFields);
 const Hero = () => {
   const heroData = usePageData(heroResolver);
 
-  return <HeroUI heroData={heroData} />;
+  return <HeroUI heroData={heroData as any} />;
 };
 
 export default Hero;

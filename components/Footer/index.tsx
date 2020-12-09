@@ -120,10 +120,10 @@ const Social = () => {
 const Footer = (): JSX.Element => {
   return (
     <footer>
-      <Social />
+      {/* <Social />
       <FooterLinks />
       <Locale />
-      <Legal />
+      <Legal /> */}
     </footer>
   );
 };

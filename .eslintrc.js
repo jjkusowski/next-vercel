@@ -38,6 +38,7 @@ module.exports = {
     "@typescript-eslint/no-use-before-define": ["error"],
     "no-underscore-dangle": 0,
     "react/require-default-props": 0,
+    camelcase: 0,
   },
   settings: {
     "import/resolver": {
