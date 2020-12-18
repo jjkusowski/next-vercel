@@ -7,6 +7,7 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
 } from "next/document";
+import { initial } from "lodash";
 import Analytics from "../components/Analytics";
 
 class MyDocument extends Document {

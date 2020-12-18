@@ -7,6 +7,8 @@ import PageContext from "../state/PageContext";
 import Layout from "../components/Layout";
 import Text from "../components/Text";
 
+// TODO: split this file into components
+
 export const getStaticProps: GetStaticProps = async () => {
   const restQuery = Prismic.getApi("https://webex.cdn.prismic.io/api/v2").then(
     async (api) => {
@@ -218,17 +220,21 @@ const componentMap = {
 
 const getComponent = (type) => componentMap[type] || componentMap.null;
 
+// TODO: decouple Body from data parsing
+// TODO: use custom hook to retrieve data
 const Body = ({ data }) => {
   const body = data.map((component) => {
     const { slice_type } = component;
+    const key = component?.primary?.id || slice_type;
     const Component = getComponent(slice_type);
 
-    return <Component key={slice_type} {...component} />;
+    return <Component key={key} {...component} />;
   });
 
   return <>{body}</>;
 };
 
+// get data returned from getStaticProps, pass to global store (PageContext.Provider)
 const Accessibility = ({ data }): JSX.Element => {
   return (
     <PageContext.Provider value={data}>
