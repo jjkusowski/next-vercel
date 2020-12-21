@@ -1,15 +1,44 @@
 {
-  "name": "my-next-app",
+  "name": "wdc",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "lint:pages": "eslint pages",
+    "lint:components": "eslint components",
+    "lint:fix:pages": "eslint --fix pages",
+    "lint:fix:components": "eslint --fix components"
   },
   "dependencies": {
-    "next": "10.0.3",
+    "@apollo/client": "^3.2.7",
+    "apollo-link-prismic": "^1.0.8",
+    "lodash": "^4.17.20",
+    "next": "10.0.1",
+    "postcss-flexbugs-fixes": "^5.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "prismic-javascript": "^3.0.2",
+    "prismic-reactjs": "^1.3.3",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-intl": "^5.10.6",
+    "tailwindcss": "^1.9.6"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.165",
+    "@types/node": "^11.15.36",
+    "@types/react": "^16.9.56",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.5"
   }
 }
