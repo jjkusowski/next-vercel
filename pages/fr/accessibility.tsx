@@ -1,1 +1,2 @@
-export default null;
+const Accessibility = () => null;
+export default Accessibility;
