@@ -23,8 +23,8 @@ module.exports = {
     },
   },
   variants: {
-    textColor: ["group-hover"],
-    backgroundColor: ["group-hover", "disabled"],
+    textColor: ["group-hover", "hover"],
+    backgroundColor: ["group-hover", "disabled", "hover"],
     scale: ["group-hover"],
     transitionProperty: ["hover", "group-hover"],
   },

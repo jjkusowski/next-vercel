@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
-import React from "react";
+import React, { useState } from "react";
+import useIsScrolledTop from "../../hooks/useIsScrolledTop";
 import { LINK_FRAGMENT } from "../../lib/graphql/fragments";
 import { getNavItem, INavItem } from "../NavItem";
 import NavUI from "./NavUI";
@@ -47,7 +48,7 @@ export const NAV_QUERY = gql`
   ${NAV_FRAGMENT}
 `;
 
-const Nav = ({ ctaText }): JSX.Element => {
+const NavCMS = ({ ctaText }): JSX.Element => {
   const { data } = useQuery(NAV_QUERY);
 
   const { layout } = data;
@@ -70,11 +71,30 @@ const Nav = ({ ctaText }): JSX.Element => {
     rightNavItems[rightNavItems.length - 1].label = ctaText;
   }
 
+  return null;
+
+  // return (
+  //   <NavUI
+  //     logoUrl={url}
+  //     leftNavItems={leftNavItems}
+  //     rightNavItems={rightNavItems}
+  //   />
+  // );
+};
+
+const Nav = (): JSX.Element => {
+  const isScrolledTop = useIsScrolledTop();
+  const [open, setOpen] = useState(true);
+
+  const toggleOpen = () => {
+    setOpen((current) => !current);
+  };
+
   return (
     <NavUI
-      logoUrl={url}
-      leftNavItems={leftNavItems}
-      rightNavItems={rightNavItems}
+      isScrolledTop={isScrolledTop}
+      isOpen={open}
+      toggleMenu={toggleOpen}
     />
   );
 };

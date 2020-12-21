@@ -33,11 +33,11 @@ type WrapperComponent = FunctionComponent<IWrapperComponentProps>;
 
 const Layout: WrapperComponent = ({ children, ctaText }) => {
   return (
-    <>
-      <Nav ctaText={ctaText} />
-      <main className="bg-gray-100">{children}</main>
+    <div className="bg-gray-100">
+      <Nav />
+      <main className="lg:mt-16">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 

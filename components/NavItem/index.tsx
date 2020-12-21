@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const onClickHandlers = {
   "join-meeting": (e) => {
@@ -40,11 +40,37 @@ interface INavItemComponentProps {
 
 type NavItemComponent = (navItem: INavItemComponentProps) => JSX.Element;
 
-const Dropdown: NavItemComponent = ({ url, label }) => (
-  <a className="no-underline" href={url} onClick={nullClick}>
-    {label}*
-  </a>
-);
+const Dropdown: NavItemComponent = ({ url, label }) => {
+  const [open, setOpen] = useState(false);
+  const openDropdown = (e) => {
+    e.preventDefault();
+    setOpen((currentState) => !currentState);
+  };
+
+  return (
+    <>
+      <a className="no-underline" href={url} onClick={openDropdown}>
+        {label}
+        <svg
+          className={`h-4 w-4 inline-block ml-2 transform ${
+            open ? "rotate-180" : ""
+          }`}
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 15l7-7 7 7"
+          />
+        </svg>
+      </a>
+    </>
+  );
+};
 
 const Link: NavItemComponent = ({ url, label, id }) => {
   const clickHandler = getClickHandler(id);
