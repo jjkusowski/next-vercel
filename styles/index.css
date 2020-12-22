@@ -55,6 +55,10 @@ span.anchor {
   visibility: hidden;
 }
 
+body.no-scroll {
+  overflow-y: hidden;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

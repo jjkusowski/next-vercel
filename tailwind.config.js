@@ -27,6 +27,7 @@ module.exports = {
     backgroundColor: ["group-hover", "disabled", "hover"],
     scale: ["group-hover"],
     transitionProperty: ["hover", "group-hover"],
+    borderWidth: ["last"],
   },
   plugins: [],
 };
