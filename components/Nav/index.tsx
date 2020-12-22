@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useWindowWidth } from "@react-hook/window-size";
 import useIsScrolledTop from "../../hooks/useIsScrolledTop";
 import { LINK_FRAGMENT } from "../../lib/graphql/fragments";
 import { getNavItem, INavItem } from "../NavItem";
@@ -84,7 +85,21 @@ const NavCMS = ({ ctaText }): JSX.Element => {
 
 const Nav = (): JSX.Element => {
   const isScrolledTop = useIsScrolledTop();
+  const isMobile = useWindowWidth() < 1024;
   const [open, setOpen] = useState(true);
+
+  // quick hack to disable background scrolling while nav is open
+  useEffect(() => {
+    if (open) {
+      document.querySelector("body").classList.add("no-scroll");
+    } else {
+      document.querySelector("body").classList.remove("no-scroll");
+    }
+  }, [open]);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [isMobile]);
 
   const toggleOpen = () => {
     setOpen((current) => !current);
