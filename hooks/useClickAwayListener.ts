@@ -16,9 +16,11 @@ const useClickAwayListener = (
     };
     // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleClickOutside);
     return () => {
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleClickOutside);
     };
   }, [ref]);
 

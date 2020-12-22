@@ -2,6 +2,8 @@ import { GetStaticProps } from "next";
 import React from "react";
 import Prismic from "prismic-javascript";
 import { Elements } from "prismic-reactjs";
+import Head from "next/head";
+import { defineMessages, useIntl } from "react-intl";
 import { getLayoutData } from "../data/layout";
 import PageContext from "../state/PageContext";
 import Layout from "../components/Layout";
@@ -234,10 +236,22 @@ const Body = ({ data }) => {
   return <>{body}</>;
 };
 
+const messages = defineMessages({
+  title: {
+    id: "Accessibility.title",
+    defaultMessage:
+      "Webex for hard of hearing users and sign language interpreters",
+  },
+});
+
 // get data returned from getStaticProps, pass to global store (PageContext.Provider)
 const Accessibility = ({ data }): JSX.Element => {
+  const { formatMessage } = useIntl();
   return (
     <PageContext.Provider value={data}>
+      <Head>
+        <title>{formatMessage(messages.title)}</title>
+      </Head>
       <Layout>
         <Body data={data.body} />
       </Layout>
