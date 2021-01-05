@@ -13,7 +13,7 @@ interface INavUIProps {
 
 const NavListItem = ({ children = null, classes = "" }) => (
   <li
-    className={`flex px-4 h-20 items-center lg:px-0 border-t last:border-b lg:border-none ${classes}`}
+    className={`flex px-4 py-6 items-center lg:px-0 border-t last:border-b lg:border-none ${classes}`}
   >
     <div className="whitespace-no-wrap flex-grow">{children}</div>
   </li>

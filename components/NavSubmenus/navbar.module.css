@@ -1,0 +1,131 @@
+.wh-item-title {
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 28px;
+    color: #000000;
+    padding: 7px 0;
+    margin-bottom: 10px;
+  }
+  .wbx-header-product-eyebrow {
+    font-size: 16px !important;
+    padding-left: 15px !important;
+    line-height: 1.5 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .border-style{
+    border-left: 1px solid #E9E9E9;
+  }
+  
+  .desc-color{
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  @media (min-width: 1024px){
+  .right-signin{
+    width: 24rem;
+    right: 15%;
+    box-shadow: 0px 2px 9px #39393B;
+    background-color: white;
+  }
+  .animation-learn{
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1) !important;
+    transition: opacity 400ms ease-in-out, visibility 400ms ease-in-out !important;
+  }
+  .border-top{
+    border-top: 1px solid #ddd;
+  }
+  .solutions-padding{
+    margin-left: 7rem;
+  }
+  .border-left{
+    border-left: 1px solid #ddd;
+  }
+  .max-width-devices{
+    max-width: 21rem !important;
+  }
+  }
+  
+  @media (max-width: 1023px){
+    .right-signin{
+      width: 100%;
+    }
+  
+    .webex-workspaces{
+      width: calc(100vw - 30px);
+      border-top: 1px solid #E9E9E9;
+      padding-top: 21px;
+      padding-bottom: 10px;
+      margin-top: 132px;
+      list-style: none;
+      margin-left: -2rem;
+      margin-right: -5px;
+      border-left: none;
+    }
+    .flex-wrapper{
+      flex-wrap: wrap;
+    }
+  }
+  .border-signin{
+    border: 1px solid #ced4da;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  .signin-bg{
+    background: #03688E;
+    border-color: #03688E;
+    border: 1px solid transparent;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: .25rem;
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  
+  .webex-title{
+    color: #6218CA;
+  }
+  .start-for-free{
+    padding: 10px 15px !important;
+      background: white;
+      border: 1px solid #6218CA !important;
+      border-radius: 20px;
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: #6218CA !important;
+      
+  }
+  
+  
+  .device-banner{
+    background-image: url(https://www.webex.com/content/dam/wbx/us/images/hp/header/devices-banner.jpg);
+  }
+  .overlay{
+    background-image: url(https://www.webex.com/content/dam/wbx/us/images/hp/header/overlay.svg);
+  }
+  
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .max-size{
+      max-width: 17rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+  .devices-tablet{
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 14px;
+      color: rgba(0, 0, 0, 0.5);
+      min-height: 56px;
+      max-width: 204px;
+  }
+  .solutions-tablet{
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    min-height: 56px;
+    max-width: 229px;
+  }
+  
+  }
