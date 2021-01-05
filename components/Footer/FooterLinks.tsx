@@ -1,3 +1,10 @@
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import data from "./footer.json";
 import styles from "./footer.module.css";
@@ -16,6 +23,7 @@ class FooterLinks extends React.Component<IProps, IState> {
     };
     this.hiddenlist = this.hiddenlist.bind(this);
   }
+
   hiddenchange = () => {
     this.setState({
       showListPrev: this.state.showList,
@@ -25,6 +33,7 @@ class FooterLinks extends React.Component<IProps, IState> {
       this.setState({ showListPrev: "" });
     }
   };
+
   hiddenlist(name) {
     this.setState({ showList: name }, () => {
       this.hiddenchange();
@@ -35,14 +44,16 @@ class FooterLinks extends React.Component<IProps, IState> {
     return (
       <div className="text-center lg:text-left">
         <a
-          className={`lg:hidden`}
+          className="lg:hidden"
           href="https://www.webex.com/"
           aria-label="Cisco Webex logo"
         >
-          <span className={`${styles["wf-logo-icon"]}`}></span>
+          <span className={`${styles["wf-logo-icon"]}`} />
         </a>
         <div className="flex justify-between flex-wrap mt-8">
-          <div className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}>
+          <div
+            className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}
+          >
             <div>
               <div
                 className={`${styles["footer-category"]} text-base font-normal mb-8 uppercase`}
@@ -72,7 +83,9 @@ class FooterLinks extends React.Component<IProps, IState> {
               ))}
             </div>
           </div>
-          <div className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}>
+          <div
+            className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}
+          >
             <div>
               <div
                 className={`${styles["footer-category"]} text-base font-normal mb-8 uppercase`}
@@ -102,7 +115,9 @@ class FooterLinks extends React.Component<IProps, IState> {
               ))}
             </div>
           </div>
-          <div className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}>
+          <div
+            className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}
+          >
             <div>
               <div
                 className={`${styles["footer-category"]} text-base font-normal mb-8 uppercase`}
@@ -132,7 +147,9 @@ class FooterLinks extends React.Component<IProps, IState> {
               ))}
             </div>
           </div>
-          <div className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}>
+          <div
+            className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}
+          >
             <div>
               <div
                 className={`${styles["footer-category"]} text-base font-normal mb-8 uppercase`}
@@ -145,7 +162,7 @@ class FooterLinks extends React.Component<IProps, IState> {
                   className={
                     this.state.showList === "help"
                       ? `list-none ${styles["wbx-list"]} block lg:block -mt-4 mb-6 lg:mt-0 lg:mb-0`
-                    : `list-none ${styles["wbx-list"]} hidden lg:block -mt-4 mb-6 lg:mt-0 lg:mb-0`
+                      : `list-none ${styles["wbx-list"]} hidden lg:block -mt-4 mb-6 lg:mt-0 lg:mb-0`
                   }
                   key={s.id}
                 >
@@ -162,7 +179,9 @@ class FooterLinks extends React.Component<IProps, IState> {
               ))}
             </div>
           </div>
-          <div className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}>
+          <div
+            className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}
+          >
             <div>
               <div
                 className={`${styles["footer-category"]} text-base font-normal mb-8 uppercase`}
@@ -174,8 +193,8 @@ class FooterLinks extends React.Component<IProps, IState> {
                 <ul
                   className={
                     this.state.showList === "company"
-                    ? `list-none ${styles["wbx-list"]} block lg:block -mt-4 mb-6 lg:mt-0 lg:mb-0`
-                    : `list-none ${styles["wbx-list"]} hidden lg:block -mt-4 mb-6 lg:mt-0 lg:mb-0`
+                      ? `list-none ${styles["wbx-list"]} block lg:block -mt-4 mb-6 lg:mt-0 lg:mb-0`
+                      : `list-none ${styles["wbx-list"]} hidden lg:block -mt-4 mb-6 lg:mt-0 lg:mb-0`
                   }
                   key={s.id}
                 >
@@ -208,7 +227,6 @@ class FooterLinks extends React.Component<IProps, IState> {
               className={`${styles["wf-region-name"]} text-sm pr-5 pl-10 relative text-white`}
               data-wbx-toggle-trigger=""
               aria-expanded="false"
-              tabIndex="0"
               onClick={() => this.hiddenlist("region")}
             >
               India
@@ -225,7 +243,11 @@ class FooterLinks extends React.Component<IProps, IState> {
             >
               {data.countries.map((s) => (
                 <li data-id={s.dataId} key={s.id}>
-                  <a className="lg:text-black text-sm font-normal leading-8" href={s.href} key={s.id}>
+                  <a
+                    className="lg:text-black text-sm font-normal leading-8"
+                    href={s.href}
+                    key={s.id}
+                  >
                     {s.name}
                   </a>
                 </li>

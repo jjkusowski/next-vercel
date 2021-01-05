@@ -18,7 +18,7 @@ const Solutions = () => {
              <a href="/all-new-webex.html" data-click-id="" className={`leading-normal	lg:py-4 font-normal text-lg ${styles["webex-title"]} md:py-12`}>
                                     Introducing the all new Webex
                                 </a>
-             <p class="text-xs font-light leading-normal mt-4 lg:mt-0">
+             <p className="text-xs font-light leading-normal mt-4 lg:mt-0">
                                   <b>Webex</b> is your one easy-to-use and secure app to call, message, meet and get work done.
                                 </p>
               <div className="flex flex-wrap  grid grid-cols-12 mt-8 mr-4 text-left">
@@ -28,7 +28,7 @@ const Solutions = () => {
                                       <a href={s.href} data-click-id={s["data-id"]} key={s.id}>
                                         {s.name}
                                       </a>
-                                      <div class={`text-xs font-light leading-normal whitespace-pre-line ${styles["solutions-tablet"]}`} key={s.id}>
+                                      <div className={`text-xs font-light leading-normal whitespace-pre-line ${styles["solutions-tablet"]}`} key={s.id}>
                                         {s.desc}
                                       </div>
                 </div>
@@ -36,7 +36,7 @@ const Solutions = () => {
               ))}
                 </div>
                 <div className="flex flex-wrap mt-8 mr-4">
-                <a target="_blank" href="https://cart.webex.com/sign-up-webex" className={`${styles["start-for-free"]} text-sm font-normal leading-normal hover:bg-purple-600 focus:text-white`} data-click-id="global_primary_nav_button_start-free">Get it now, for free</a>
+                <a target="_blank" rel="noreferrer" href="https://cart.webex.com/sign-up-webex" className={`${styles["start-for-free"]} text-sm font-normal leading-normal hover:bg-purple-600 focus:text-white`} data-click-id="global_primary_nav_button_start-free">Get it now, for free</a>
                 </div>
              </div>
            </div>
