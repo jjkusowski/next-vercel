@@ -162,7 +162,7 @@ const NavUI = (
         {/* <!-- mobile-only menu with slide-down effect --> */}
         <ul
           className={`absolute top-0 left-0  flex-col flex-grow w-full mt-20 bg-white lg:hidden lg:ml-6 lg:space-x-2 xl:space-x-5 
-          ${isOpenOrOpening ? "flex" : "hidden"}`}
+          ${isOpenOrOpening ? "flex" : ""}`}
           data-info="mobile-nav"
           hidden={isClosed}
           aria-hidden={isClosed}
