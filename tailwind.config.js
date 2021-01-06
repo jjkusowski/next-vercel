@@ -13,6 +13,9 @@ module.exports = {
       center: true,
     },
     extend: {
+      transitionProperty: {
+        height: "height",
+      },
       colors: {
         "accent-1": "#333",
         blue: {
@@ -23,11 +26,13 @@ module.exports = {
     },
   },
   variants: {
-    textColor: ["group-hover", "hover"],
-    backgroundColor: ["group-hover", "disabled", "hover"],
-    scale: ["group-hover"],
-    transitionProperty: ["hover", "group-hover"],
-    borderWidth: ["last"],
+    extend: {
+      textColor: ["group-hover", "hover"],
+      backgroundColor: ["group-hover", "disabled", "hover"],
+      scale: ["group-hover"],
+      transitionProperty: ["hover", "group-hover"],
+      borderWidth: ["last"],
+    },
   },
   plugins: [],
 };
