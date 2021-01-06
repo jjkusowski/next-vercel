@@ -39,6 +39,8 @@ module.exports = {
     "no-underscore-dangle": 0,
     "react/require-default-props": 0,
     camelcase: 0,
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
   },
   settings: {
     "import/resolver": {

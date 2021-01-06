@@ -35,7 +35,7 @@ const Layout: WrapperComponent = ({ children, ctaText }) => {
   return (
     <div className="bg-gray-100">
       <Nav />
-      <main className="lg:mt-16">{children}</main>
+      <main className="pt-20">{children}</main>
       <Footer />
     </div>
   );
