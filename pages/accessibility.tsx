@@ -248,10 +248,12 @@ const messages = defineMessages({
 // get data returned from getStaticProps, pass to global store (PageContext.Provider)
 const Accessibility = ({ data }): JSX.Element => {
   const { formatMessage } = useIntl();
+  const title = formatMessage(messages.title);
   return (
     <PageContext.Provider value={data}>
       <Head>
-        <title>{formatMessage(messages.title)}</title>
+        <meta name="description" content={title} />
+        <title>{title}</title>
       </Head>
       <Layout>
         <Body data={data.body} />

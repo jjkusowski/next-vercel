@@ -22,6 +22,11 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta name="author" content="Webex" />
+          <meta name="publisher" content="Cisco" />
+          <meta property="og:type" content="website" />
+          <meta name="twitter:card" content="summary" key="twcard" />
+          <meta name="twitter:creator" content="@Webex" key="twhandle" />
           <Analytics />
         </Head>
         <body>
