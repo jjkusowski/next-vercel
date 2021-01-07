@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import React from "react";
 import { LINK_FRAGMENT } from "../../lib/graphql/fragments";
 import * as data from "./footer.json";
 import FooterLink from "./FooterLinks";
@@ -141,7 +142,7 @@ class Footer extends React.PureComponent {
             <FooterTwitter />
             <FooterLegal />
           </div>
-          <div className="lg:w-9/12 lg:pl-40 lg:pl-8 pt-16">
+          <div className="pt-16 lg:w-9/12 lg:pl-40 lg:pl-8">
             <FooterLink />
             <FooterTerms />
           </div>
