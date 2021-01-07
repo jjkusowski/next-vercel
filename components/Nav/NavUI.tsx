@@ -1,4 +1,4 @@
-import React from "react";
+import { forwardRef } from "react";
 import { useIntl } from "react-intl";
 import HamburgerMenu from "react-hamburger-menu";
 import NavDropdown from "../NavDropdown";
@@ -174,4 +174,4 @@ const NavUI = (
   );
 };
 
-export default React.forwardRef(NavUI);
+export default forwardRef(NavUI);
