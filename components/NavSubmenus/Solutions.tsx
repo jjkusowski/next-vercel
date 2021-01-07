@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import React from "react";
 import data from "./submenu.json";
 import styles from "./navbar.module.css";
 

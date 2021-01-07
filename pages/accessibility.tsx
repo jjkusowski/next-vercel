@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import React from "react";
+import { createElement } from "react";
 import Prismic from "prismic-javascript";
 import { Elements } from "prismic-reactjs";
 import Head from "next/head";
@@ -36,20 +36,17 @@ const Hero = (props) => {
   const { dimensions, alt, url } = image;
   const { width, height } = dimensions;
 
+  const h1s = text.filter((textObj) => textObj.type === "heading1");
+  const body = text.filter((textObj) => textObj.type !== "heading1");
+
   const htmlSerializer = (type, _element, _content, children, key) => {
     switch (type) {
       case Elements.heading1: {
-        return React.createElement(
+        return createElement(
           "h1",
           { className: "leading-tight", key },
           children
         );
-      }
-      case Elements.heading3: {
-        return React.createElement("h3", { className: "mt-12", key }, children);
-      }
-      case Elements.paragraph: {
-        return React.createElement("p", { className: "mt-12", key }, children);
       }
       default:
         return null;
@@ -57,10 +54,13 @@ const Hero = (props) => {
   };
 
   return (
-    <section className="mt-0 pt-0 md:container lg:relative lg:mb-10">
+    <section className="pt-0 mt-0 md:container lg:relative lg:mb-10">
       <img src={url} alt={alt} height={height} width={width} />
-      <div className="relative p-10 md:container md:mr-0 md:-mt-12 bg-white lg:absolute lg:bottom-0 lg:right-0 lg:px-16 lg:w-1/2 lg:-m-8 lg:h-full lg:mr-8">
-        <Text htmlSerializer={htmlSerializer}>{text}</Text>
+      <div className="relative grid gap-6 p-10 bg-white md:container md:mr-0 md:-mt-12 lg:absolute lg:bottom-0 lg:right-0 lg:px-16 lg:w-1/2 lg:-m-8 lg:h-full lg:mr-8">
+        <div>
+          <Text htmlSerializer={htmlSerializer}>{h1s}</Text>
+        </div>
+        <Text htmlSerializer={htmlSerializer}>{body}</Text>
       </div>
     </section>
   );
@@ -71,15 +71,15 @@ const Contents = (props) => {
   const { text } = primary;
 
   return (
-    <section className="py-10 container">
-      <div className="p-4 bg-white space-y-6 md:grid md:grid-cols-4">
-        <Text className="w-3/4 md:w-full md:col-span-1 md:p-6 leading-tight">
+    <section className="container py-10">
+      <div className="p-4 space-y-6 bg-white md:grid md:grid-cols-4">
+        <Text className="w-3/4 leading-tight md:w-full md:col-span-1 md:p-6">
           {text}
         </Text>
-        <ul className="md:col-span-3 block">
+        <ul className="block md:col-span-3">
           {items.map((item) => (
             <li className="flex" key={item.target_id}>
-              <div className="h-6 w-6 self-center">
+              <div className="self-center w-6 h-6">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -95,11 +95,11 @@ const Contents = (props) => {
                 </svg>
               </div>
               <a
-                className="flex-grow ml-6 py-4 no-underline flex justify-between border-b"
+                className="flex justify-between flex-grow py-4 ml-6 no-underline border-b"
                 href={`#${item.target_id}`}
               >
                 <Text>{item.text}</Text>
-                <div className="h-6 w-6 self-center">
+                <div className="self-center w-6 h-6">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -137,7 +137,7 @@ const BlockSplit = (props) => {
   return (
     <section style={{ backgroundColor: color }}>
       <span className="anchor" id={id} />
-      <div className="pb-10 md:pt-10 lg:py-24 md:container flex flex-col md:flex-row">
+      <div className="flex flex-col pb-10 md:pt-10 lg:py-24 md:container md:flex-row">
         <img
           className={`${imageOrderClass} md:w-1/2 object-contain`}
           src={url}
@@ -165,9 +165,9 @@ const BlockBottom = (props) => {
 
   return (
     <section style={{ backgroundColor: color }}>
-      <div className="container text-center py-16 space-y-10">
+      <div className="container py-16 space-y-10 text-center">
         <span className="anchor" id={id} />
-        <div className="container space-y-4 mt-6">
+        <div className="container mt-6 space-y-4">
           <Text className={textColor}>{text}</Text>
         </div>
         <img src={url} alt={alt} height={height} width={width} />
@@ -192,16 +192,17 @@ const Block = (props) => {
 
 const Help = (props) => {
   const { primary } = props;
-  const { text, url, label, color } = primary;
+  const { text, url, label, color, id } = primary;
 
   return (
-    <section className="text-center py-10" style={{ backgroundColor: color }}>
+    <section className="py-10 text-center" style={{ backgroundColor: color }}>
+      <span className="anchor" id={id} />
       <div className="container space-y-4">
         <Text>{text}</Text>
         <a
           href={url.url}
           target={url.target}
-          className="btn-blue px-8 py-4 no-underline text-lg inline-block"
+          className="inline-block px-8 py-4 text-lg no-underline btn-blue"
         >
           {label[0].text}
         </a>

@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/tabindex-no-positive */
-import React from "react";
 import data from "./submenu.json";
 import styles from "./navbar.module.css";
 

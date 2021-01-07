@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import Footer, {
   FOOTER_LINKS_FRAGMENT,
   LEGAL_FRAGMENT,
@@ -35,7 +35,7 @@ const Layout: WrapperComponent = ({ children, ctaText }) => {
   return (
     <div className="bg-gray-100">
       <Nav />
-      <main className="lg:mt-16">{children}</main>
+      <main className="pt-20">{children}</main>
       <Footer />
     </div>
   );

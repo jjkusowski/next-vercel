@@ -1,5 +1,4 @@
 import "../styles/index.css";
-import React from "react";
 import { ApolloProvider } from "@apollo/client";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import { IntlProvider, RawIntlProvider } from "react-intl";

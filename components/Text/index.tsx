@@ -1,4 +1,3 @@
-import React from "react";
 import { RichText, RichTextBlock, RichTextProps } from "prismic-reactjs";
 
 type StyledRichTextBlock = RichTextBlock & { label?: string };

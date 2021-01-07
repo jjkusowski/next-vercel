@@ -3,7 +3,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable prettier/prettier */
-import React from "react";
 import axios from 'axios';
 import styles from "./navbar.module.css";
 import  {checkUser} from "../../public/static/Signin";
@@ -37,7 +36,6 @@ class SignIn extends React.Component {
     </div>
       
   );
-  }
 };
 
 export default SignIn;

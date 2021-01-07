@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import { GetStaticProps } from "next";
-import React from "react";
 import Prismic from "prismic-javascript";
 import { filter, reject } from "lodash";
 import Image from "next/image";
@@ -87,10 +86,10 @@ const FeatureBlock = ({ data }) => {
     if (!action_type) return null;
 
     return (
-      <div className="cta group flex flex-row items-center space-x-2 cursor-pointer">
+      <div className="flex flex-row items-center space-x-2 cursor-pointer cta group">
         <button
           type="button"
-          className="h-12 w-12 border-2 border-blue rounded-full text-lg group-hover:bg-blue group-hover:text-white group-hover:scale-110 transform transition-all duration-500 ease-in-out"
+          className="w-12 h-12 text-lg transition-all duration-500 ease-in-out transform border-2 rounded-full border-blue group-hover:bg-blue group-hover:text-white group-hover:scale-110"
         >
           +
         </button>
@@ -101,7 +100,7 @@ const FeatureBlock = ({ data }) => {
 
   return (
     <div className={`section ${bgColorClass}`}>
-      <div className="container grid grid-cols-1 gap-y-12 justify-items-center text-center">
+      <div className="container grid grid-cols-1 text-center gap-y-12 justify-items-center">
         {renderImageSection()}
         {renderHeaderSection()}
         {renderCopySection()}

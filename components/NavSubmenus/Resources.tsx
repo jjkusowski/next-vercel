@@ -1,7 +1,6 @@
-import React from "react";
 import data from "./submenu.json";
 import styles from "./navbar.module.css";
-
+        
 const Resources = () => {
   return (
     <div className="w-auto h-auto lg:fixed left-0 right-0 top-20 pl-0 pt-0 mt-6 bg-white text-left">

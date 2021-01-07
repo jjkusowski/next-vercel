@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./navbar.module.css";
 import data from "./submenu.json";
 
