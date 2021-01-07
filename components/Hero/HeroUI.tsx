@@ -2,7 +2,6 @@
 import { find } from "lodash";
 import Image from "next/image";
 import { Link, RichTextBlock } from "prismic-reactjs";
-import React from "react";
 import usePageBodyData from "../../hooks/usePageBodyData";
 import HeroCallToAction from "../HeroCallToAction";
 import SignupForm from "../SignupForm";

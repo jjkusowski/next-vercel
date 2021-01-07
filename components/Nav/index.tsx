@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import React, { TransitionEvent, useEffect, useRef, useState } from "react";
+import { TransitionEvent, useEffect, useRef, useState } from "react";
 import { useWindowWidth } from "@react-hook/window-size";
 import useIsScrolledTop from "../../hooks/useIsScrolledTop";
 import { LINK_FRAGMENT } from "../../lib/graphql/fragments";

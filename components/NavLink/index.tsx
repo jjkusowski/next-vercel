@@ -1,5 +1,3 @@
-import React from "react";
-
 interface INavLinkProps {
   label: string;
   url: string;
@@ -26,7 +24,7 @@ const NavLink = (props: INavLinkProps): JSX.Element => {
 
   return (
     <a
-      className="no-underline flex justify-start hover:text-blue"
+      className="flex justify-start no-underline hover:text-blue"
       href={url}
       onClick={clickHandler}
     >

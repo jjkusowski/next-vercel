@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import Footer, {
   FOOTER_LINKS_FRAGMENT,
   LEGAL_FRAGMENT,

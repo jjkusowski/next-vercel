@@ -1,5 +1,3 @@
-import React from "react";
-
 const Solutions = () => {
   return (
     <div className="container grid-cols-12 ">

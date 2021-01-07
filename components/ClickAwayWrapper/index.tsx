@@ -1,4 +1,3 @@
-import React from "react";
 import useClickAwayListener from "../../hooks/useClickAwayListener";
 
 interface IClickAwayWrapperProps {

@@ -1,5 +1,4 @@
 import { find } from "lodash";
-import React from "react";
 import usePageBodyData from "../../hooks/usePageBodyData";
 import HeroCallToActionUI, { IHeroCtaProps } from "./HeroCallToActionUI";
 

@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import React from "react";
+import { createElement } from "react";
 import Prismic from "prismic-javascript";
 import { Elements } from "prismic-reactjs";
 import Head from "next/head";
@@ -42,7 +42,7 @@ const Hero = (props) => {
   const htmlSerializer = (type, _element, _content, children, key) => {
     switch (type) {
       case Elements.heading1: {
-        return React.createElement(
+        return createElement(
           "h1",
           { className: "leading-tight", key },
           children
