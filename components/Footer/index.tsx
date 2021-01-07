@@ -1,5 +1,11 @@
 import { gql, useQuery } from "@apollo/client";
 import { LINK_FRAGMENT } from "../../lib/graphql/fragments";
+import * as data from "./footer.json";
+import FooterLink from "./FooterLinks";
+import FooterLegal from "./FooterLegal";
+import FooterTwitter from "./FooterTwitter";
+import FooterTerms from "./FooterTerms";
+import styles from "./footer.module.css";
 
 export const FOOTER_LINKS_FRAGMENT = gql`
   fragment FooterLinks on Layout {
@@ -29,11 +35,11 @@ const FOOTER_LINKS_QUERY = gql`
   ${FOOTER_LINKS_FRAGMENT}
 `;
 
-const FooterLinks = () => {
-  const { data } = useQuery(FOOTER_LINKS_QUERY);
+// const FooterLinks = () => {
+//   const { data } = useQuery(FOOTER_LINKS_QUERY);
 
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
-};
+//   return <pre>{JSON.stringify(data, null, 2)}</pre>;
+// };
 
 export const LEGAL_FRAGMENT = gql`
   fragment Legal on Layout {
@@ -57,11 +63,11 @@ const LEGAL_QUERY = gql`
   ${LEGAL_FRAGMENT}
 `;
 
-const Legal = () => {
-  const { data } = useQuery(LEGAL_QUERY);
+// const Legal = () => {
+//   const { data } = useQuery(LEGAL_QUERY);
 
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
-};
+//   return <pre>{JSON.stringify(data, null, 2)}</pre>;
+// };
 
 export const LOCALE_FRAGMENT = gql`
   fragment Locale on Layout {
@@ -81,11 +87,11 @@ const LOCALE_QUERY = gql`
   ${LOCALE_FRAGMENT}
 `;
 
-const Locale = () => {
-  const { data } = useQuery(LOCALE_QUERY);
+// const Locale = () => {
+//   const { data } = useQuery(LOCALE_QUERY);
 
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
-};
+//   return <pre>{JSON.stringify(data, null, 2)}</pre>;
+// };
 
 export const SOCIAL_FRAGMENT = gql`
   fragment Social on Layout {
@@ -110,21 +116,43 @@ const SOCAIL_QUERY = gql`
   ${SOCIAL_FRAGMENT}
 `;
 
-const Social = () => {
-  const { data } = useQuery(SOCAIL_QUERY);
+// const Social = () => {
+//   const { data1 } = useQuery(SOCAIL_QUERY);
 
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
-};
-
-const Footer = (): JSX.Element => {
-  return (
-    <footer>
-      {/* <Social />
+//   return <pre>{JSON.stringify(data, null, 2)}</pre>;
+// };
+class Footer extends React.PureComponent {
+  render() {
+    return (
+      <footer className="bg-black">
+        <div
+          className={`${styles["wbx-container"]} mx-auto flex flex-wrap px-10`}
+        >
+          <div className={`${styles["wbx-left"]}`}>
+            <a
+              className={`${styles["wf-logo"]} hidden lg:inline-block`}
+              href="https://www.webex.com/"
+              aria-label="Cisco Webex logo"
+            >
+              <span
+                className={`${styles["wf-logo-icon"]} h-12 w-48 inline-block bg-center`}
+              />
+            </a>
+            <FooterTwitter />
+            <FooterLegal />
+          </div>
+          <div className="lg:w-9/12 lg:pl-40 lg:pl-8 pt-16">
+            <FooterLink />
+            <FooterTerms />
+          </div>
+        </div>
+        {/* <Social />
       <FooterLinks />
       <Locale />
       <Legal /> */}
-    </footer>
-  );
-};
+      </footer>
+    );
+  }
+}
 
 export default Footer;
