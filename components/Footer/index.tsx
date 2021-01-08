@@ -1,7 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
+import React from "react";
 import { LINK_FRAGMENT } from "../../lib/graphql/fragments";
-import * as data from "./footer.json";
-import FooterLink from "./FooterLinks";
+import * as data from "./data";
+import FooterLinks from "./FooterLinks";
 import FooterLegal from "./FooterLegal";
 import FooterTwitter from "./FooterTwitter";
 import FooterTerms from "./FooterTerms";
@@ -124,7 +125,7 @@ const SOCAIL_QUERY = gql`
 class Footer extends React.PureComponent {
   render() {
     return (
-      <footer className="bg-black">
+      <footer className="bg-brand-footer">
         <div
           className={`${styles["wbx-container"]} mx-auto flex flex-wrap px-10`}
         >
@@ -141,15 +142,11 @@ class Footer extends React.PureComponent {
             <FooterTwitter />
             <FooterLegal />
           </div>
-          <div className="lg:w-9/12 lg:pl-40 lg:pl-8 pt-16">
-            <FooterLink />
+          <div className="pt-16 lg:w-9/12 lg:pl-40 lg:pl-8">
+            <FooterLinks />
             <FooterTerms />
           </div>
         </div>
-        {/* <Social />
-      <FooterLinks />
-      <Locale />
-      <Legal /> */}
       </footer>
     );
   }

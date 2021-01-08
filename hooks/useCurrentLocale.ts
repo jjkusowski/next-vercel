@@ -1,9 +1,17 @@
 import { useRouter } from "next/router";
+import { localeKeyLookup } from "../config/locales";
 
-const useCurrentLocale = (): string => {
-  const { locale } = useRouter();
+interface ILocale {
+  locale: string;
+  locales: string[];
+  localeKey: string;
+}
 
-  return locale;
+const useCurrentLocale = (): ILocale => {
+  const { locale, locales } = useRouter();
+  const localeKey = localeKeyLookup[locale];
+
+  return { locale, locales, localeKey };
 };
 
 export default useCurrentLocale;

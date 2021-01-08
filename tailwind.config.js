@@ -18,6 +18,9 @@ module.exports = {
       },
       colors: {
         "accent-1": "#333",
+        brand: {
+          footer: "#121212",
+        },
         blue: {
           default: "#01bceb",
           darker: "#005073",

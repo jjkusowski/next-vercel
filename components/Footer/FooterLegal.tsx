@@ -1,7 +1,11 @@
 import React from "react";
+import { useIntl } from "react-intl";
 import styles from "./footer.module.css";
+import { LocaleKey } from "../../common/layouts/interfaces";
+import messages from "../../common/layouts/translations";
 
 const FooterLegal = () => {
+  const { formatMessage } = useIntl();
   return (
     <div className={`${styles["wf-legal"]}`}>
       <ul className={`${styles["wf-legal-list"]} lg:hidden`}>
@@ -11,7 +15,7 @@ const FooterLegal = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Terms & Conditions
+            {formatMessage(messages[LocaleKey.Terms])}
           </a>
         </li>
         <li className="mb-2">
@@ -20,7 +24,7 @@ const FooterLegal = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Privacy Statement
+            {formatMessage(messages[LocaleKey.Privacy])}
           </a>
         </li>
         <li className="mb-2">
@@ -29,7 +33,7 @@ const FooterLegal = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Cookies
+            {formatMessage(messages[LocaleKey.Cookies])}
           </a>
         </li>
         <li className="mb-2">
@@ -38,7 +42,7 @@ const FooterLegal = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Trademarks
+            {formatMessage(messages[LocaleKey.Trademarks])}
           </a>
         </li>
       </ul>
@@ -52,7 +56,7 @@ const FooterLegal = () => {
           title="Cisco Webex on Twitter"
         >
           <svg
-            className="w-4 fa-w-16 inline-block align-middle"
+            className="inline-block w-4 align-middle fa-w-16"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -72,7 +76,7 @@ const FooterLegal = () => {
           title="Cisco Webex on LinkedIn"
         >
           <svg
-            className="w-4 fa-w-14 inline-block align-middle"
+            className="inline-block w-4 align-middle fa-w-14"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
@@ -92,7 +96,7 @@ const FooterLegal = () => {
           title="Cisco Webex on Facebook"
         >
           <svg
-            className="w-4 fa-w-14 inline-block align-middle"
+            className="inline-block w-4 align-middle fa-w-14"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
@@ -112,7 +116,7 @@ const FooterLegal = () => {
           title="Cisco Webex on YouTube"
         >
           <svg
-            className="w-4 fa-w-18 inline-block align-middle"
+            className="inline-block w-4 align-middle fa-w-18"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"
@@ -132,7 +136,7 @@ const FooterLegal = () => {
           title="Cisco Webex Blog"
         >
           <svg
-            className="w-4 fa-w-14 inline-block align-middle"
+            className="inline-block w-4 align-middle fa-w-14"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
@@ -152,7 +156,7 @@ const FooterLegal = () => {
           title="Cisco Webex on Instagram"
         >
           <svg
-            className="w-4 fa-w-14 inline-block align-middle"
+            className="inline-block w-4 align-middle fa-w-14"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
@@ -166,9 +170,11 @@ const FooterLegal = () => {
         </a>
       </div>
       <div className={`${styles.copyright} lg:hidden`}>
-        &copy; <span>{new Date().getFullYear()}</span> Cisco and/or its
-        affiliates.
-        <br className="visible-xs" /> All rights reserved.
+        {formatMessage(messages[LocaleKey.Affiliates], {
+          date: new Date().getFullYear(),
+        })}
+        <br className="visible-xs" />{" "}
+        {formatMessage(messages[LocaleKey.Rights])}
       </div>
     </div>
   );
