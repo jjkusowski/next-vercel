@@ -1,10 +1,9 @@
-import React from "react";
 import { useIntl } from "react-intl";
 import styles from "./footer.module.css";
 import { LocaleKey } from "../../common/layouts/interfaces";
 import messages from "../../common/layouts/translations";
 
-const FooterLegal = () => {
+const FooterLegal = (): JSX.Element => {
   const { formatMessage } = useIntl();
   return (
     <div className={`${styles["wf-legal"]}`}>

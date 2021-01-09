@@ -1,11 +1,4 @@
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable @typescript-eslint/no-empty-interface */
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useIntl } from "react-intl";
 import data from "./data";
 import styles from "./footer.module.css";
@@ -15,10 +8,18 @@ import messages from "../../common/layouts/translations";
 import links from "../../common/layouts/links";
 import useCurrentLocale from "../../hooks/useCurrentLocale";
 import ClickAwayWrapper from "../ClickAwayWrapper";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const FooterLinkList: FooterLinkListComponent = ({ title, listItems }) => {
   const { formatMessage } = useIntl();
   const [open, setOpen] = useState(false);
+  // determines if mobile width or not
+  const isMobile = useIsMobile();
+
+  // reset open state on relevant window size changes
+  useEffect(() => {
+    setOpen(false);
+  }, [isMobile]);
 
   const toggleOpen = () => {
     setOpen((currentState) => !currentState);
@@ -32,9 +33,15 @@ const FooterLinkList: FooterLinkListComponent = ({ title, listItems }) => {
         className={`${styles["width-footer"]} text-white ${styles["wbx-links-wrapper"]}`}
       >
         <div>
-          <div
-            className={`${styles["footer-category"]} text-base font-normal mb-8 uppercase`}
+          <button
+            className={`${styles["footer-category"]} text-base font-normal mb-8 uppercase w-full lg:hidden`}
             onClick={toggleOpen}
+            type="button"
+          >
+            {title}
+          </button>
+          <div
+            className={`${styles["footer-category"]} text-base font-normal mb-8 uppercase w-full hidden lg:block`}
           >
             {title}
           </div>
@@ -65,7 +72,10 @@ const FooterRegionPicker = () => {
   const [open, setOpen] = useState(false);
 
   const closePicklist = () => setOpen(false);
-  const openPicklist = () => setOpen(true);
+
+  const togglePickList = () => {
+    setOpen((curr) => !curr);
+  };
 
   const collapsedContainerClassList = open ? "" : `${styles.collapsed}`;
   const collapsedULClassList = open ? "show" : "hidden";
@@ -80,13 +90,14 @@ const FooterRegionPicker = () => {
         <div
           className={`${styles["wbx-region-container"]} ${collapsedContainerClassList} lg:absolute right-8  lg:right-12`}
         >
-          <a
+          <button
             className={`${styles["wf-region-name"]} text-sm pr-5 pl-10 relative text-white cursor-pointer`}
             aria-expanded={open}
-            onClick={openPicklist}
+            onClick={togglePickList}
+            type="button"
           >
             {currentLocaleDisplayName}
-          </a>
+          </button>
 
           <ul
             className={`${styles["wf-region-list"]} ${styles["region-select-list"]} ${collapsedULClassList}`}
@@ -151,7 +162,7 @@ const FooterLinksUI = () => {
   );
 };
 
-const FooterLinks = () => {
+const FooterLinks = (): JSX.Element => {
   return <FooterLinksUI />;
 };
 
