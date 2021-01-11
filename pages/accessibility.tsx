@@ -253,11 +253,13 @@ const messages = defineMessages({
 // get data returned from getStaticProps, pass to global store (PageContext.Provider)
 const Accessibility = ({ data }): JSX.Element => {
   const { formatMessage } = useIntl();
+  // TODO: get title and description from CMS
   const title = formatMessage(messages.title);
   const description = formatMessage(messages.description);
   return (
     <PageContext.Provider value={data}>
       <Head>
+        {/* TODO: update all URLs */}
         <meta name="description" content={description} />
         <meta name="title" content={title} />
         <meta
@@ -281,6 +283,9 @@ const Accessibility = ({ data }): JSX.Element => {
           name="twitter:image"
           content="https://www.webex.com/content/dam/wbx/us/images/covid/hearing-impaired/Webex_Sign_Language_HERO.png"
         />
+        <meta name="language" content="en" />
+        <meta name="country" content="US" />
+        {/* TODO: add canonical link.  Needs to be based on environment as domain has to match */}
         {/* <link rel="canonical" href="https://www.webex.com/accessibility.html" /> */}
         <title>{title}</title>
       </Head>

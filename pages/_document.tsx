@@ -34,9 +34,6 @@ class MyDocument extends Document {
           <meta name="keywords" />
           <meta name="format-detection" content="telephone=no" />
           <meta name="X-UA-Compatible" content="IE=edge,chrome=1" />
-          <meta name="language" content="en" />
-          <meta name="country" content="US" />
-
           <Analytics />
         </Head>
         <body>
