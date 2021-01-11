@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState, MouseEvent } from "react";
 import ClickAwayWrapper from "../ClickAwayWrapper";
 import NavDropdownUI, { INavDropdownProps } from "./NavDropdownUI";
 
 const NavDropdown = (props: INavDropdownProps): JSX.Element => {
   const { wrapperClasses = "" } = props;
   const [open, setOpen] = useState(false);
-  const toggleDropdown = (e: React.MouseEvent) => {
+  const toggleDropdown = (e: MouseEvent) => {
     e.preventDefault();
     setOpen((currentState) => !currentState);
   };

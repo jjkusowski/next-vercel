@@ -1,4 +1,3 @@
-import React from "react";
 import { GA_TRACKING_ID } from "../../lib/google/gtag";
 
 const Analytics = (): JSX.Element => (

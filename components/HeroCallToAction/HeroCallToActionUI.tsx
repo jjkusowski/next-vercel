@@ -1,5 +1,4 @@
 import { Link } from "prismic-reactjs";
-import React from "react";
 
 export interface IHeroCtaProps {
   primary: {

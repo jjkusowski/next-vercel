@@ -1,5 +1,4 @@
 import { filter, find } from "lodash";
-import React from "react";
 import usePageData from "../../hooks/usePageData";
 import usePageBodyData from "../../hooks/usePageBodyData";
 import resolverFactory from "../../utils/resolverFactory";

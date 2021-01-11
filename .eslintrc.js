@@ -31,6 +31,8 @@ module.exports = {
     ],
     "import/extensions": 0,
     "react/prop-types": 0,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": ["error", { custom: "ignore" }],
     "prettier/prettier": "error",
     // note you must disable the base rule as it can report incorrect errors
