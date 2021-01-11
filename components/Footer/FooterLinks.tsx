@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useIntl } from "react-intl";
+
+import countries from "../../common/locales/countries";
 import data from "./data";
 import styles from "./footer.module.css";
 import { LocaleKey } from "../../common/layouts/interfaces";
@@ -9,6 +11,7 @@ import links from "../../common/layouts/links";
 import useCurrentLocale from "../../hooks/useCurrentLocale";
 import ClickAwayWrapper from "../ClickAwayWrapper";
 import useIsMobile from "../../hooks/useIsMobile";
+import LocaleLink from "../LocaleLink";
 
 const FooterLinkList: FooterLinkListComponent = ({ title, listItems }) => {
   const { formatMessage } = useIntl();
@@ -67,7 +70,7 @@ const FooterLinkList: FooterLinkListComponent = ({ title, listItems }) => {
 
 // TODO: write common picklist component and refactor this to consume it
 const FooterRegionPicker = () => {
-  const { localeKey } = useCurrentLocale();
+  const { locale } = useCurrentLocale();
 
   const [open, setOpen] = useState(false);
 
@@ -80,8 +83,8 @@ const FooterRegionPicker = () => {
   const collapsedContainerClassList = open ? "" : `${styles.collapsed}`;
   const collapsedULClassList = open ? "show" : "hidden";
 
-  const { displayName: currentLocaleDisplayName } = data.countries.find(
-    (countryData) => countryData.dataId === localeKey
+  const { displayName: currentLocaleDisplayName } = countries.find(
+    (countryData) => countryData.dataId === locale
   );
 
   return (
@@ -103,16 +106,11 @@ const FooterRegionPicker = () => {
             className={`${styles["wf-region-list"]} ${styles["region-select-list"]} ${collapsedULClassList}`}
             aria-hidden={!open}
           >
-            {data.countries.map((localeData) => {
+            {countries.map((localeData) => {
+              const { dataId } = localeData;
               return (
-                <li data-id={localeData.dataId} key={localeData.id}>
-                  <a
-                    className="text-sm font-normal leading-8 lg:text-black hover:text-gray-500 "
-                    href={localeData.href}
-                    key={localeData.id}
-                  >
-                    {localeData.displayName}
-                  </a>
+                <li data-id={dataId} key={dataId}>
+                  <LocaleLink country={localeData} />
                 </li>
               );
             })}

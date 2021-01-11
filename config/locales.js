@@ -38,11 +38,11 @@ module.exports = {
   defaultLocale: SUPPORTED_LOCALES.US,
   domains: [
     {
-      domain: "example.com",
+      domain: "webex.com",
       defaultLocale: SUPPORTED_LOCALES.US,
     },
     {
-      domain: "example.fr",
+      domain: "webex.fr",
       defaultLocale: SUPPORTED_LOCALES.FR,
     },
   ],
