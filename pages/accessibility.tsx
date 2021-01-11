@@ -4,7 +4,6 @@ import Prismic from "prismic-javascript";
 import { Elements } from "prismic-reactjs";
 import Head from "next/head";
 import { defineMessages, useIntl } from "react-intl";
-import { getLayoutData } from "../data/layout";
 import PageContext from "../state/PageContext";
 import Layout from "../components/Layout";
 import Text from "../components/Text";
@@ -20,11 +19,10 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   );
 
-  const [apolloClient, data] = await Promise.all([getLayoutData(), restQuery]);
+  const data = await restQuery;
 
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
       data,
     },
   };
