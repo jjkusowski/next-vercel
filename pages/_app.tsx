@@ -1,8 +1,6 @@
 import "../styles/index.css";
-import { ApolloProvider } from "@apollo/client";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import { RawIntlProvider } from "react-intl";
-import { useApollo } from "../lib/apollo/apolloClient";
 import { getIntl } from "../lib/intl";
 import useCurrentLocale from "../hooks/useCurrentLocale";
 
@@ -30,15 +28,12 @@ export const reportWebVitals: WebVitals = ({ name, label, value, id }) => {
 };
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  const apolloClient = useApollo(pageProps.initialApolloState);
   const { locale } = useCurrentLocale();
   const intl = getIntl(locale);
 
   return (
     <RawIntlProvider value={intl}>
-      <ApolloProvider client={apolloClient}>
-        <Component {...pageProps} />
-      </ApolloProvider>
+      <Component {...pageProps} />
     </RawIntlProvider>
   );
 }

@@ -1,14 +1,13 @@
 /* eslint-disable camelcase */
 import { GetStaticProps } from "next";
 import Prismic from "prismic-javascript";
-import { filter, reject } from "lodash";
+import { reject } from "lodash";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import PageContext from "../state/PageContext";
 import Hero from "../components/Hero";
 import usePageBodyData from "../hooks/usePageBodyData";
 import Text from "../components/Text";
-import { getLayoutData } from "../data/layout";
 
 export const getStaticProps: GetStaticProps = async () => {
   const restQuery = Prismic.getApi("https://webex.cdn.prismic.io/api/v2").then(
@@ -29,15 +28,11 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   );
 
-  const [apolloClient, { data: pageData }] = await Promise.all([
-    getLayoutData(),
-    restQuery,
-  ]);
+  const { data } = await restQuery;
 
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
-      data: pageData,
+      data,
     },
   };
 };
@@ -50,7 +45,7 @@ const FeatureBlock = ({ data }) => {
     background_color,
     copy,
     action_type,
-    action_id,
+    // action_id,
     cta_label,
   } = primary;
 

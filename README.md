@@ -43,16 +43,6 @@ While it is possible to use tailwind's `@apply` liberally to achieve CSS compone
 
 We have not had the time to define a clean data-fetching abstraction, so in order to handle the abstraction leak we have exposed the leak in its entirety. This means we are querying atomically using Prismic APIs and graphql. We will revisit fetching abstractions down the road, but for the moment we will expose our fetching at the top-level and attempt to consume the data agnostically through our components.
 
-Author's note: We are leaning away from the use of GraphQL due to the nature of our application. Since all data fetching is done once at the top-level, we do not require the granularity that graphql allows for as a front-end data-fetching solution. Since much of our fetching will be done at build-time, we should not worry about "over-fetching" data.
-
-### GraphQL Queries
-
-Apollo client and apollo client hooks are used to query prismic CMS and populate pages with data. NextJS' `getStaticProps` function is only available at the page level, so it's "one query to rule them all".
-
-To break up the mono-queries, we can abstract gql queries into fragments at the component level, and import them at the top level to initiate the mono-query. Component data needs are collocated with the component code, and each component uses apollo's `useQuery` hook to query into the apollo cache to retrieve required data.
-
-Component-level queries are not allowed to pass fragments to `useQuery`, which is the only place where significant code duplication is necessary.
-
 ### REST Queries
 
 Prismic REST API is used in conjunction with graphql in some places. Define a query using Prismic REST library within `getStaticProps` and return the data as `props.data`. For RESTful queries, all data from the requested document is returned, not just that which you query for specifically (a la graphql). Since all data is fetched at the top-level, it is important to be able to share data with children without prop-drilling. This is done via a page context and page content custom hooks.

@@ -1,54 +1,9 @@
-import { gql } from "@apollo/client";
 import { TransitionEvent, useEffect, useRef, useState } from "react";
 import useIsScrolledTop from "../../hooks/useIsScrolledTop";
-import { LINK_FRAGMENT } from "../../lib/graphql/fragments";
 import { getNavItem, INavItem } from "../NavItem";
 import { NavStates } from "./interfaces";
 import NavUI from "./NavUI";
 import useIsMobile from "../../hooks/useIsMobile";
-
-const NAV_ITEMS_FRAGMENT = gql`
-  fragment NavItems on LayoutBodyMenu_link_dropdown {
-    primary {
-      nav_item_id
-      nav_item_label
-      nav_item_link {
-        ...Link
-      }
-      nav_item_type
-      nav_item_alignment
-    }
-    fields {
-      submenu_item_desc
-      submenu_item_link {
-        ...Link
-      }
-      submenu_item_label
-      submenu_item_is_partitioned
-    }
-  }
-  ${LINK_FRAGMENT}
-`;
-
-export const NAV_FRAGMENT = gql`
-  fragment Nav on Layout {
-    body {
-      ...NavItems
-    }
-    logo
-    logo_white
-  }
-  ${NAV_ITEMS_FRAGMENT}
-`;
-
-export const NAV_QUERY = gql`
-  query {
-    layout(uid: "layout", lang: "en-us") {
-      ...Nav
-    }
-  }
-  ${NAV_FRAGMENT}
-`;
 
 // this is broken due to removal of GQL -- if desired, reimplement with REST
 const NavCMS = ({ ctaText }): JSX.Element => {
