@@ -1,56 +1,47 @@
 import React from "react";
+import { useIntl } from "react-intl";
 import styles from "./footer.module.css";
+import { LocaleKey } from "../../common/layouts/interfaces";
+import messages from "../../common/layouts/translations";
+import commonLinks from "../../common/layouts/links";
 
-const FooterTerms = () => {
+const linkData = [
+  LocaleKey.Terms,
+  LocaleKey.Privacy,
+  LocaleKey.Cookies,
+  LocaleKey.Trademarks,
+];
+
+const FooterTerms = (): JSX.Element => {
+  const { formatMessage } = useIntl();
+
+  const links = linkData.map((linkKey) => {
+    return (
+      <li key={linkKey}>
+        <a
+          className="no-underline hover:text-gray-500"
+          href={formatMessage(commonLinks[linkKey])}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {formatMessage(messages[linkKey])}
+        </a>
+      </li>
+    );
+  });
+
   return (
     <div className={`${styles["wf-legal"]} h-8 mt-8 hidden lg:inline-block`}>
       <ul
         className={`${styles["wf-legal-list"]} float-right ml-8 text-white flex relative list-none text-sm`}
       >
-        <li>
-          <a
-            className="no-underline"
-            href="https://www.cisco.com/c/en/us/about/legal/terms-conditions.html"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Terms & Conditions
-          </a>
-        </li>
-        <li>
-          <a
-            className="no-underline"
-            href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Privacy Statement
-          </a>
-        </li>
-        <li>
-          <a
-            className="no-underline"
-            href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html#cookies"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Cookies
-          </a>
-        </li>
-        <li>
-          <a
-            className="no-underline"
-            href="https://www.cisco.com/web/siteassets/legal/trademark.html"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Trademarks
-          </a>
-        </li>
+        {links}
       </ul>
       <div className={`${styles.copyright} text-white float-right text-sm`}>
-        &copy; <span>{new Date().getFullYear()}</span> Cisco and/or its
-        affiliates. All rights reserved.
+        {formatMessage(messages[LocaleKey.Affiliates], {
+          date: new Date().getFullYear(),
+        })}{" "}
+        {formatMessage(messages[LocaleKey.Rights])}
       </div>
     </div>
   );
