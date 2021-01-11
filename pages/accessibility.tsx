@@ -10,10 +10,12 @@ import Text from "../components/Text";
 
 // TODO: split this file into components
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const restQuery = Prismic.getApi("https://webex.cdn.prismic.io/api/v2").then(
     async (api) => {
-      const doc = await api.getByUID("info", "accessibility");
+      const doc = await api.getByUID("info", "accessibility", {
+        lang: locale.toLowerCase(),
+      });
 
       return doc.data;
     }
