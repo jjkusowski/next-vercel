@@ -1,29 +1,6 @@
-import { gql } from "@apollo/client";
 import { FunctionComponent } from "react";
-import Footer, {
-  FOOTER_LINKS_FRAGMENT,
-  LEGAL_FRAGMENT,
-  LOCALE_FRAGMENT,
-  SOCIAL_FRAGMENT,
-} from "../Footer";
-import Nav, { NAV_FRAGMENT } from "../Nav";
-
-export const LAYOUT_QUERY = gql`
-  query {
-    layout(uid: "layout", lang: "en-us") {
-      ...Nav
-      ...FooterLinks
-      ...Legal
-      ...Locale
-      ...Social
-    }
-  }
-  ${NAV_FRAGMENT}
-  ${FOOTER_LINKS_FRAGMENT}
-  ${LEGAL_FRAGMENT}
-  ${LOCALE_FRAGMENT}
-  ${SOCIAL_FRAGMENT}
-`;
+import Footer from "../Footer";
+import Nav from "../Nav";
 
 interface IWrapperComponentProps {
   children: React.ReactNode;

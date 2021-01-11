@@ -3,8 +3,7 @@ import { GetStaticProps } from "next";
 import Prismic from "prismic-javascript";
 import { reject } from "lodash";
 import Image from "next/image";
-import { queryApollo } from "../../lib/apollo/apolloClient";
-import Layout, { LAYOUT_QUERY } from "../../components/Layout";
+import Layout from "../../components/Layout";
 import PageContext from "../../state/PageContext";
 import Hero from "../../components/Hero";
 import usePageBodyData from "../../hooks/usePageBodyData";
@@ -29,15 +28,11 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   );
 
-  const [apolloClient, { data: pageData }] = await Promise.all([
-    queryApollo(LAYOUT_QUERY),
-    restQuery,
-  ]);
+  const { data } = await restQuery;
 
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
-      data: pageData,
+      data,
     },
   };
 };
@@ -50,7 +45,7 @@ const FeatureBlock = ({ data }) => {
     background_color,
     copy,
     action_type,
-    action_id,
+    // action_id,
     cta_label,
   } = primary;
 
