@@ -2,6 +2,7 @@
   "name": "wdc",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
@@ -9,7 +10,8 @@
     "lint:pages": "eslint pages",
     "lint:components": "eslint components",
     "lint:fix:pages": "eslint --fix pages",
-    "lint:fix:components": "eslint --fix components"
+    "lint:fix:components": "eslint --fix components",
+    "createComponent": "node componentBuilder.js"
   },
   "dependencies": {
     "@react-hook/window-size": "^3.0.7",
