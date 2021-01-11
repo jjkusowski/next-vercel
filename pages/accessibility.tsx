@@ -246,15 +246,49 @@ const messages = defineMessages({
     defaultMessage:
       "Webex for hard of hearing users and sign language interpreters",
   },
+  description: {
+    id: "Accessibility.description",
+    defaultMessage:
+      "Make your meetings more accessible with these tips on creating the best experience for sign language interpreters and collaborating with hearing-impaired attendees.",
+  },
 });
 
 // get data returned from getStaticProps, pass to global store (PageContext.Provider)
 const Accessibility = ({ data }): JSX.Element => {
   const { formatMessage } = useIntl();
+  // TODO: get title and description from CMS
+  const title = formatMessage(messages.title);
+  const description = formatMessage(messages.description);
   return (
     <PageContext.Provider value={data}>
       <Head>
-        <title>{formatMessage(messages.title)}</title>
+        {/* TODO: update all URLs */}
+        <meta name="description" content={description} />
+        <meta name="title" content={title} />
+        <meta
+          name="og:url"
+          content="https://www.webex.com/accessibility.html"
+        />
+        <meta name="og:title" content={description} />
+        <meta
+          property="og:image"
+          content="https://www.webex.com/content/dam/wbx/us/images/covid/hearing-impaired/Webex_Sign_Language_HERO.png"
+        />
+        <meta property="og:site_name" content="Webex" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:url"
+          content="https://www.webex.com/accessibility.html"
+        />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta
+          name="twitter:image"
+          content="https://www.webex.com/content/dam/wbx/us/images/covid/hearing-impaired/Webex_Sign_Language_HERO.png"
+        />
+        {/* TODO: add canonical link.  Needs to be based on environment as domain has to match */}
+        {/* <link rel="canonical" href="https://www.webex.com/accessibility.html" /> */}
+        <title>{title}</title>
       </Head>
       <Layout>
         <Body data={data.body} />

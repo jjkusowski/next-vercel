@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint:pages": "eslint pages",
     "lint:components": "eslint components",
