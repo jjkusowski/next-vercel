@@ -283,8 +283,6 @@ const Accessibility = ({ data }): JSX.Element => {
           name="twitter:image"
           content="https://www.webex.com/content/dam/wbx/us/images/covid/hearing-impaired/Webex_Sign_Language_HERO.png"
         />
-        <meta name="language" content="en" />
-        <meta name="country" content="US" />
         {/* TODO: add canonical link.  Needs to be based on environment as domain has to match */}
         {/* <link rel="canonical" href="https://www.webex.com/accessibility.html" /> */}
         <title>{title}</title>
