@@ -3,40 +3,28 @@ import { useIntl } from "react-intl";
 import styles from "./footer.module.css";
 import { LocaleKey } from "../../common/layouts/interfaces";
 import messages from "../../common/layouts/translations";
+import commonLinks from "../../common/layouts/links";
 
 const linkData = [
-  {
-    href: "https://www.cisco.com/c/en/us/about/legal/terms-conditions.html",
-    id: "terms",
-  },
-  {
-    href: "https://www.cisco.com/c/en/us/about/legal/privacy-full.html",
-    id: "privacy",
-  },
-  {
-    href: "https://www.cisco.com/c/en/us/about/legal/privacy-full.html#cookies",
-    id: "cookies",
-  },
-  {
-    href: "https://www.cisco.com/web/siteassets/legal/trademark.html",
-    id: "trademarks",
-  },
+  LocaleKey.Terms,
+  LocaleKey.Privacy,
+  LocaleKey.Cookies,
+  LocaleKey.Trademarks,
 ];
 
-const FooterTerms = () => {
+const FooterTerms = (): JSX.Element => {
   const { formatMessage } = useIntl();
 
-  const links = linkData.map((link) => {
-    const { href, id } = link;
+  const links = linkData.map((linkKey) => {
     return (
-      <li key={id}>
+      <li key={linkKey}>
         <a
           className="no-underline hover:text-gray-500"
-          href={href}
+          href={formatMessage(commonLinks[linkKey])}
           target="_blank"
           rel="noreferrer"
         >
-          {formatMessage(messages[id])}
+          {formatMessage(messages[linkKey])}
         </a>
       </li>
     );

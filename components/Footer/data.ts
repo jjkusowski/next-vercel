@@ -2,170 +2,56 @@ import { LocaleKey } from "../../common/layouts/interfaces";
 
 export default {
   [LocaleKey.Solutions]: [
-    {
-      id: 1,
-      localeKey: LocaleKey.Webex,
-    },
-    {
-      id: 2,
-      localeKey: LocaleKey.Plans,
-    },
-    {
-      id: 3,
-      localeKey: LocaleKey.Downloads,
-    },
-    {
-      id: 4,
-      localeKey: LocaleKey.DevicesRooms,
-    },
-    {
-      id: 5,
-      localeKey: LocaleKey.ContactCenter,
-    },
-    {
-      id: 6,
-      localeKey: LocaleKey.Events,
-    },
-    {
-      id: 7,
-      localeKey: LocaleKey.Training,
-    },
-    {
-      id: 8,
-      localeKey: LocaleKey.RemoteSupport,
-    },
-    {
-      id: 9,
-      localeKey: LocaleKey.HardwareService,
-    },
+    LocaleKey.Webex,
+    LocaleKey.Plans,
+    LocaleKey.Downloads,
+    LocaleKey.DevicesRooms,
+    LocaleKey.ContactCenter,
+    LocaleKey.Events,
+    LocaleKey.Training,
+    LocaleKey.RemoteSupport,
+    LocaleKey.HardwareService,
   ],
 
   [LocaleKey.Features]: [
-    {
-      id: 10,
-      localeKey: LocaleKey.WebexMeet,
-    },
-    {
-      id: 11,
-      localeKey: LocaleKey.WebexCall,
-    },
-    {
-      id: 12,
-      localeKey: LocaleKey.WebexMessage,
-    },
-    {
-      id: 13,
-      localeKey: LocaleKey.ScreenSharing,
-    },
-    {
-      id: 14,
-      localeKey: LocaleKey.ConferenceCall,
-    },
-    {
-      id: 15,
-      localeKey: LocaleKey.AI,
-    },
+    LocaleKey.WebexMeet,
+    LocaleKey.WebexCall,
+    LocaleKey.WebexMessage,
+    LocaleKey.ScreenSharing,
+    LocaleKey.ConferenceCall,
+    LocaleKey.AI,
   ],
 
   [LocaleKey.WebexFor]: [
-    {
-      id: 16,
-      localeKey: LocaleKey.Education,
-    },
-    {
-      id: 17,
-      localeKey: LocaleKey.Healthcare,
-    },
-    {
-      id: 18,
-      localeKey: LocaleKey.FinancialServices,
-    },
-    {
-      id: 19,
-      localeKey: LocaleKey.Government,
-    },
-    {
-      id: 20,
-      localeKey: LocaleKey.Startups,
-    },
-    {
-      id: 21,
-      localeKey: LocaleKey.Sports,
-    },
-    {
-      id: 22,
-      localeKey: LocaleKey.Developers,
-    },
-    {
-      id: 23,
-      localeKey: LocaleKey.IT,
-    },
-    {
-      id: 24,
-      localeKey: LocaleKey.Partners,
-    },
+    LocaleKey.Education,
+    LocaleKey.Healthcare,
+    LocaleKey.FinancialServices,
+    LocaleKey.Government,
+    LocaleKey.Startups,
+    LocaleKey.Sports,
+    LocaleKey.Developers,
+    LocaleKey.IT,
+    LocaleKey.Partners,
   ],
 
   [LocaleKey.Help]: [
-    {
-      id: 25,
-      localeKey: LocaleKey.HelpCenter,
-    },
-    {
-      id: 26,
-      localeKey: LocaleKey.JoinTest,
-    },
-    {
-      id: 27,
-      localeKey: LocaleKey.OnlineClasses,
-    },
-    {
-      id: 28,
-      localeKey: LocaleKey.Blog,
-    },
-    {
-      id: 29,
-      localeKey: LocaleKey.WebinarsDemos,
-    },
-    {
-      id: 30,
-      localeKey: LocaleKey.Integrations,
-    },
-    {
-      id: 31,
-      localeKey: LocaleKey.WebexEssentials,
-    },
-    {
-      id: 32,
-      localeKey: LocaleKey.WebexCommunity,
-    },
-    {
-      id: 33,
-      localeKey: LocaleKey.BusinessContinuity,
-    },
+    LocaleKey.HelpCenter,
+    LocaleKey.JoinTest,
+    LocaleKey.OnlineClasses,
+    LocaleKey.Blog,
+    LocaleKey.WebinarsDemos,
+    LocaleKey.Integrations,
+    LocaleKey.WebexEssentials,
+    LocaleKey.WebexCommunity,
+    LocaleKey.BusinessContinuity,
   ],
 
-  company: [
-    {
-      id: 34,
-      localeKey: LocaleKey.WhyWebex,
-    },
-    {
-      id: 35,
-      localeKey: LocaleKey.Cisco,
-    },
-    {
-      id: 36,
-      localeKey: LocaleKey.FutureWork,
-    },
-    {
-      id: 37,
-      localeKey: LocaleKey.ContactSupport,
-    },
-    {
-      id: 38,
-      localeKey: LocaleKey.ContactSales,
-    },
+  [LocaleKey.Company]: [
+    LocaleKey.WhyWebex,
+    LocaleKey.Cisco,
+    LocaleKey.FutureWork,
+    LocaleKey.ContactSupport,
+    LocaleKey.ContactSales,
   ],
 
   countries: [
@@ -264,13 +150,6 @@ export default {
       displayName: "United States (English)",
       dataId: "US",
       href: "/",
-    },
-  ],
-  three: "3",
-  four: 4,
-  others: [
-    {
-      five: 5,
     },
   ],
 };

@@ -48,7 +48,7 @@ const FooterLinkList: FooterLinkListComponent = ({ title, listItems }) => {
           <ul
             className={`list-none ${styles["wbx-list"]} ${displayClassList} lg:block -mt-4 mb-6 lg:mt-0 lg:mb-0`}
           >
-            {listItems.map(({ localeKey }) => (
+            {listItems.map((localeKey) => (
               <li className="py-2 text-sm " key={localeKey}>
                 <a
                   className="text-sm font-light no-underline hover:text-gray-600"

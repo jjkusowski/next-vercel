@@ -4,7 +4,7 @@ import styles from "./footer.module.css";
 import { LocaleKey } from "../../common/layouts/interfaces";
 import messages from "../../common/layouts/translations";
 
-const FooterTwitter = () => {
+const FooterTwitter = (): JSX.Element => {
   const { formatMessage } = useIntl();
   return (
     <div className={`${styles["wf-twitters"]} mt-12`}>

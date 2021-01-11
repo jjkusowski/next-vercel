@@ -26,7 +26,6 @@ export default defineMessages({
     id: getId(Keys.Company),
     defaultMessage: "Company",
   },
-  // FooterLegal / FooterTerms
   [Keys.Terms]: {
     id: getId(Keys.Terms),
     defaultMessage: "Terms & Conditions",
@@ -213,12 +212,3 @@ export default defineMessages({
     defaultMessage: "Contact Sales",
   },
 });
-
-/**
-
-[Keys.]: {
-  id: getId(Keys.),
-  defaultMessage: ""
-},
-
-*/

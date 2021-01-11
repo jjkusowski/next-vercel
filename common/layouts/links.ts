@@ -160,4 +160,23 @@ export default defineMessages({
     id: getId(Keys.ContactSales),
     defaultMessage: "https://www.webex.com/contact-sales.html",
   },
+  [Keys.Terms]: {
+    id: getId(Keys.Terms),
+    defaultMessage:
+      "https://www.cisco.com/c/en/us/about/legal/terms-conditions.html",
+  },
+  [Keys.Privacy]: {
+    id: getId(Keys.Privacy),
+    defaultMessage:
+      "https://www.cisco.com/c/en/us/about/legal/privacy-full.html",
+  },
+  [Keys.Cookies]: {
+    id: getId(Keys.Cookies),
+    defaultMessage:
+      "https://www.cisco.com/c/en/us/about/legal/privacy-full.html#cookies",
+  },
+  [Keys.Trademarks]: {
+    id: getId(Keys.Trademarks),
+    defaultMessage: "https://www.cisco.com/web/siteassets/legal/trademark.html",
+  },
 });
