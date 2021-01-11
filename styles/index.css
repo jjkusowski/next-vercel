@@ -13,9 +13,9 @@
   p {
     @apply text-xl;
   }
-  a {
+  /* a {
     @apply underline;
-  }
+  } */
 }
 
 /* Write your own custom base styles here */
@@ -56,15 +56,6 @@ body.no-scroll {
   overflow-y: hidden;
 }
 
-a{
-  cursor: pointer;
-  text-decoration: none;
-  outline: 0;
-  -webkit-font-smoothing: antialiased;
-}
-a:hover{
-  color: gray;
-}
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

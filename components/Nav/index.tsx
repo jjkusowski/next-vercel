@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 import { TransitionEvent, useEffect, useRef, useState } from "react";
-import { useWindowWidth } from "@react-hook/window-size";
 import useIsScrolledTop from "../../hooks/useIsScrolledTop";
 import { LINK_FRAGMENT } from "../../lib/graphql/fragments";
 import { getNavItem, INavItem } from "../NavItem";
 import { NavStates } from "./interfaces";
 import NavUI from "./NavUI";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const NAV_ITEMS_FRAGMENT = gql`
   fragment NavItems on LayoutBodyMenu_link_dropdown {
@@ -80,7 +80,7 @@ const NavCMS = ({ ctaText }): JSX.Element => {
 const Nav = (): JSX.Element => {
   const navRef = useRef();
   const isScrolledTop = useIsScrolledTop();
-  const isMobile = useWindowWidth() < 1024;
+  const isMobile = useIsMobile();
   const [navState, setNavState] = useState<NavStates>(NavStates.CLOSED);
 
   const isEventTargetingNavRef = (ev: TransitionEvent<Element>) => {

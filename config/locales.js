@@ -19,8 +19,22 @@ const SUPPORTED_LOCALES = {
 
 const locales = Object.values(SUPPORTED_LOCALES);
 
+const localeKeys = Object.keys(SUPPORTED_LOCALES);
+
+const localeKeyLookup = Object.entries(SUPPORTED_LOCALES).reduce(
+  (localeMap, [localeKey, localeVal]) => {
+    // eslint-disable-next-line no-param-reassign
+    localeMap[localeVal] = localeKey;
+
+    return localeMap;
+  },
+  {}
+);
+
 module.exports = {
   locales,
+  localeKeys,
+  localeKeyLookup,
   defaultLocale: SUPPORTED_LOCALES.US,
   domains: [
     {

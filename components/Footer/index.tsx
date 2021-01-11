@@ -1,7 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
+import React from "react";
 import { LINK_FRAGMENT } from "../../lib/graphql/fragments";
-import * as data from "./footer.json";
-import FooterLink from "./FooterLinks";
+import * as data from "./data";
+import FooterLinks from "./FooterLinks";
 import FooterLegal from "./FooterLegal";
 import FooterTwitter from "./FooterTwitter";
 import FooterTerms from "./FooterTerms";
@@ -121,38 +122,33 @@ const SOCAIL_QUERY = gql`
 
 //   return <pre>{JSON.stringify(data, null, 2)}</pre>;
 // };
-class Footer extends React.PureComponent {
-  render() {
-    return (
-      <footer className="bg-black">
-        <div
-          className={`${styles["wbx-container"]} mx-auto flex flex-wrap px-10`}
-        >
-          <div className={`${styles["wbx-left"]}`}>
-            <a
-              className={`${styles["wf-logo"]} hidden lg:inline-block`}
-              href="https://www.webex.com/"
-              aria-label="Cisco Webex logo"
-            >
-              <span
-                className={`${styles["wf-logo-icon"]} h-12 w-48 inline-block bg-center`}
-              />
-            </a>
-            <FooterTwitter />
-            <FooterLegal />
-          </div>
-          <div className="lg:w-9/12 lg:pl-40 lg:pl-8 pt-16">
-            <FooterLink />
-            <FooterTerms />
-          </div>
+
+const Footer = (): JSX.Element => {
+  return (
+    <footer className="bg-brand-footer">
+      <div
+        className={`${styles["wbx-container"]} mx-auto flex flex-wrap px-10`}
+      >
+        <div className={`${styles["wbx-left"]}`}>
+          <a
+            className={`${styles["wf-logo"]} hidden lg:inline-block`}
+            href="https://www.webex.com/"
+            aria-label="Cisco Webex logo"
+          >
+            <span
+              className={`${styles["wf-logo-icon"]} h-12 w-48 inline-block bg-center`}
+            />
+          </a>
+          <FooterTwitter />
+          <FooterLegal />
         </div>
-        {/* <Social />
-      <FooterLinks />
-      <Locale />
-      <Legal /> */}
-      </footer>
-    );
-  }
-}
+        <div className="pt-16 lg:w-9/12 lg:pl-40 lg:pl-8">
+          <FooterLinks />
+          <FooterTerms />
+        </div>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
