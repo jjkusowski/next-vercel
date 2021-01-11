@@ -4,6 +4,7 @@ import Prismic from "prismic-javascript";
 import { Elements } from "prismic-reactjs";
 import Head from "next/head";
 import { defineMessages, useIntl } from "react-intl";
+import Image from "next/image";
 import PageContext from "../state/PageContext";
 import Layout from "../components/Layout";
 import Text from "../components/Text";
@@ -55,7 +56,7 @@ const Hero = (props) => {
 
   return (
     <section className="pt-0 mt-0 md:container lg:relative lg:mb-10">
-      <img src={url} alt={alt} height={height} width={width} />
+      <Image src={url} alt={alt} height={height} width={width} priority />
       <div className="relative grid gap-6 p-10 bg-white md:container md:mr-0 md:-mt-12 lg:absolute lg:bottom-0 lg:right-0 lg:px-16 lg:w-1/2 lg:-m-8 lg:h-full lg:mr-8">
         <div>
           <Text htmlSerializer={htmlSerializer}>{h1s}</Text>
@@ -138,13 +139,15 @@ const BlockSplit = (props) => {
     <section style={{ backgroundColor: color }}>
       <span className="anchor" id={id} />
       <div className="flex flex-col pb-10 md:pt-10 lg:py-24 md:container md:flex-row">
-        <img
-          className={`${imageOrderClass} md:w-1/2 object-contain`}
-          src={url}
-          alt={alt}
-          height={height}
-          width={width}
-        />
+        <div className={`${imageOrderClass} flex`}>
+          <Image
+            className={`${imageOrderClass} md:w-1/2 object-contain`}
+            src={url}
+            alt={alt}
+            height={height}
+            width={width}
+          />
+        </div>
         <div
           className={`${textOrderClass} flex flex-col space-y-4 justify-center p-8 md:pt-0`}
         >
@@ -170,7 +173,7 @@ const BlockBottom = (props) => {
         <div className="container mt-6 space-y-4">
           <Text className={textColor}>{text}</Text>
         </div>
-        <img src={url} alt={alt} height={height} width={width} />
+        <Image src={url} alt={alt} height={height} width={width} />
       </div>
     </section>
   );
