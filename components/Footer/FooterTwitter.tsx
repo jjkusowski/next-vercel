@@ -1,39 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import ReactVisibilitySensor from "react-visibility-sensor";
 import { useIntl } from "react-intl";
 import styles from "./footer.module.css";
 import { LocaleKey } from "../../common/layouts/interfaces";
 import messages from "../../common/layouts/translations";
+import Twitter from "../Twitter";
 
 const FooterTwitter = (): JSX.Element => {
   const { formatMessage } = useIntl();
+  const [showTwitter, setShowTwitter] = useState(false);
 
-  useEffect(() => {
-    const setOnLoad = () => {
-      window.onload = () => {
-        const script = document.createElement("script");
-        script.src = "https://platform.twitter.com/widgets.js";
-        script.async = true;
-        script.charset = "utf-8";
-
-        const twitterAnchor = document.querySelector(".twitter-timeline");
-        twitterAnchor.after(script);
-      };
-    };
-
-    setOnLoad();
-  }, []);
+  const onViz = (isViz) => {
+    if (isViz) {
+      setShowTwitter(true);
+    }
+  };
 
   return (
-    <div className={`${styles["wf-twitters"]} mt-12`}>
-      <a
-        data-theme="dark"
-        data-height="485"
-        data-chrome="noheader nofooter noborders noscrollbar transparent"
-        className="twitter-timeline"
-        href="https://twitter.com/Webex?ref_src=twsrc%5Etfw"
-      >
-        {formatMessage(messages[LocaleKey.Twitter])}
-      </a>
+    <div className={`${styles["wf-twitters"]} flex justify-center`}>
+      <ReactVisibilitySensor onChange={onViz}>
+        <Twitter show={showTwitter}>
+          {formatMessage(messages[LocaleKey.Twitter])}
+        </Twitter>
+      </ReactVisibilitySensor>
     </div>
   );
 };
