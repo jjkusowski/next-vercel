@@ -22,9 +22,6 @@
   max-width: 1460px;
 }
 
-.wf-twitters {
-  min-height: 555px;
-}
 .wf-social > a {
   font-size: 18px;
   color: #9e9ea2;
@@ -45,7 +42,7 @@
   padding: 25px;
 }
 
-button.wf-region-name:before {
+.wf-region-name:before {
   content: "";
   width: 30px;
   height: 30px;
@@ -56,7 +53,7 @@ button.wf-region-name:before {
   top: -9px;
   left: 0;
 }
-button.wf-region-name::after {
+.wf-region-name::after {
   content: "";
   display: inline-block;
   width: 0.5rem;
@@ -69,17 +66,17 @@ button.wf-region-name::after {
   transform: rotate(-45deg);
   border-color: #fff;
 }
-button.wf-region-name:before {
+.wf-region-name:before {
   top: -7px;
 }
-button.wf-region-name::after {
+.wf-region-name::after {
   top: 7px;
 }
 
 ul.wf-legal-list li:not(:first-child) {
   margin-left: 11px;
 }
-.wbx-region-container.collapsed button.wf-region-name::after {
+.wbx-region-container.collapsed .wf-region-name::after {
   top: 3px;
   transform: rotate(135deg);
 }

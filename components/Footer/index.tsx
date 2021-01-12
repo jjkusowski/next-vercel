@@ -11,7 +11,7 @@ const Footer = (): JSX.Element => {
       <div
         className={`${styles["wbx-container"]} mx-auto flex flex-wrap px-10`}
       >
-        <div className={`${styles["wbx-left"]}`}>
+        <div className={`${styles["wbx-left"]} flex flex-col justify-between`}>
           <a
             className={`${styles["wf-logo"]} hidden lg:inline-block`}
             href="https://www.webex.com/"
