@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import Image from "next/image";
 import data from "./submenu.json";
 import styles from "./navbar.module.css";
 
@@ -10,27 +11,27 @@ const Solutions = () => {
            <div className="md:grid md:grid-cols-12">
            <div className="md:col-span-12 lg:col-span-7">
            <div className="flex flex-wrap lg:-ml-8">
-             <div className="col-span-12 w-full lg:w-auto lg:col-span-1">
-             <img className="mx-auto md:mx-0" alt="solutions" src="https://www.webex.com/content/dam/wbx/us/images/hp/header/solutions.svg"/>
+             <div className="w-full col-span-12 lg:w-auto lg:col-span-1">
+             <Image className="mx-auto md:mx-0" alt="solutions" src="https://www.webex.com/content/dam/wbx/us/images/hp/header/solutions.svg" height="50" width="75"/>
              </div>
              <div className={`col-span-12 lg:col-span-11 lg:-mt-12  mr-8 ${styles["solutions-padding"]} mt-4 mb-8 lg:mb-0 w-full md:w-auto text-center md:text-justify`}>
              <a href="/all-new-webex.html" data-click-id="" className={`leading-normal	lg:py-4 font-normal text-lg ${styles["webex-title"]} md:py-12`}>
                                     Introducing the all new Webex
                                 </a>
-             <p className="text-xs font-light leading-normal mt-4 lg:mt-0">
+             <p className="mt-4 text-xs font-light leading-normal lg:mt-0">
                                   <b>Webex</b> is your one easy-to-use and secure app to call, message, meet and get work done.
                                 </p>
-              <div className="flex flex-wrap  grid grid-cols-12 mt-8 mr-4 text-left">
+              <div className="flex grid flex-wrap grid-cols-12 mt-8 mr-4 text-left">
               {data.products.map(s => (
                 <div className="col-span-12 md:col-span-4" key={s.id}>
-                <div className="product-sub" key={s.id}>
-                                      <a href={s.href} data-click-id={s["data-id"]} key={s.id}>
-                                        {s.name}
-                                      </a>
-                                      <div className={`text-xs font-light leading-normal whitespace-pre-line ${styles["solutions-tablet"]}`} key={s.id}>
-                                        {s.desc}
-                                      </div>
-                </div>
+                  <div className="product-sub">
+                    <a href={s.href} data-click-id={s["data-id"]}>
+                      {s.name}
+                    </a>
+                    <div className={`text-xs font-light leading-normal whitespace-pre-line ${styles["solutions-tablet"]}`}>
+                      {s.desc}
+                    </div>
+                  </div>
                 </div>
               ))}
                 </div>
@@ -41,26 +42,26 @@ const Solutions = () => {
            </div>
            </div>
            <div className={`md:col-span-6 lg:col-span-3 ${styles["border-left"]} relative lg:pl-8 mb-8 md:mb-0`}>
-             <div className="text-black leading-normal pb-4 mb-0 font-normal text-lg">Other Solutions</div>
-              <ul className="m-0 p-0 font-normal antialiased">
+             <div className="pb-4 mb-0 text-lg font-normal leading-normal text-black">Other Solutions</div>
+              <ul className="p-0 m-0 antialiased font-normal">
               {data.solutions.map(s => (
-                <li className="h-10 list-none pl-0 ml-0" key={s.id}>
-                <a className="text-base font-light antialiased" key={s.id} href={s.href} data-click-id={s["data-id"]}>
-                                  {s.name}
-                                </a>
+                <li className="h-10 pl-0 ml-0 list-none" key={s.id}>
+                  <a className="text-base antialiased font-light" href={s.href} data-click-id={s["data-id"]}>
+                    {s.name}
+                  </a>
                 </li>
               ))}
               </ul>
              
            </div>
            <div className={`md:col-span-6 lg:col-span-2 ${styles["border-left"]} relative lg:pl-8`}>
-           <div className="text-black leading-normal pb-4 mb-0 font-normal text-lg">Webex for industries</div>
-              <ul className="m-0 p-0 font-normal antialiased">
+           <div className="pb-4 mb-0 text-lg font-normal leading-normal text-black">Webex for industries</div>
+              <ul className="p-0 m-0 antialiased font-normal">
               {data.industries.map(s => (
-                <li className="h-10 list-none pl-0 ml-0" key={s.id}>
-                <a className="text-base font-light antialiased" key={s.id} href={s.href} data-click-id={s["data-id"]}>
-                                  {s.name}
-                                </a>
+                <li className="h-10 pl-0 ml-0 list-none" key={s.id}>
+                  <a className="text-base antialiased font-light" href={s.href} data-click-id={s["data-id"]}>
+                    {s.name}
+                  </a>
                 </li>
               ))}
               </ul>

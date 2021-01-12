@@ -1,5 +1,10 @@
+import Image from "next/image";
 import styles from "./navbar.module.css";
 import data from "./submenu.json";
+
+const DeviceImage = ({ src, alt }) => (
+  <Image src={src} alt={alt} width="80" height="55" />
+);
 
 const Devices = () => {
   return (
@@ -15,23 +20,21 @@ const Devices = () => {
         <div
           className={`lg:px-8 xl:px-32 w-full relative left-0 ${styles["border-top"]}`}
         >
-          <p className="text-base text-white pt-4 mb-0">As seen at</p>
-          <p>
-            <img
-              alt="webexone"
-              src="https://www.webex.com/content/dam/wbx/us/images/hp/header/webexone.svg"
-            />
-          </p>
+          <p className="pt-4 mb-0 text-base text-white">As seen at</p>
+          <DeviceImage
+            alt="webexone"
+            src="https://www.webex.com/content/dam/wbx/us/images/hp/header/webexone.svg"
+          />
           <div className="flex flex-wrap mt-6 ml-0">
             <div>
-              <img
+              <DeviceImage
                 alt="webex devices"
                 src="https://www.webex.com/content/dam/wbx/us/images/hp/header/webex-desk-camera.svg"
               />
             </div>
-            <div className="text-sm pl-6 grid-cols-6">
+            <div className="grid-cols-6 pl-6 text-sm">
               <a
-                className="font-normal text-white text-lg py-4 -mt-4"
+                className="py-4 -mt-4 text-lg font-normal text-white"
                 data-click-id="nav_devices_text_deskpro"
                 href="https://www.webex.com/desk-camera-sign-up.html"
               >
@@ -49,27 +52,20 @@ const Devices = () => {
       <div
         className={`md:p-0 lg:px-8 xl:px-32 w-full relative left-0 ${styles["border-top"]} h-auto`}
       >
-        <div className="px-0 md:py-12 list-none">
-          <ul className="flex flex-wrap w-full list-none m-0 p-0 md:mb-6">
+        <div className="px-0 list-none md:py-12">
+          <ul className="flex flex-wrap w-full p-0 m-0 list-none md:mb-6">
             {data.devices.map((s, index) => (
               <li
-                className="font-normal text-sm leading-7 px-8 mb-0 ml-0 w-full md:w-1/3"
+                className="w-full px-8 mb-0 ml-0 text-sm font-normal leading-7 md:w-1/3"
                 key={s.id}
               >
-                <div
-                  className="md:mb-4 items-center flex flex-wrap -mx-12 mb-6 md:mb-0"
-                  key={s.id}
-                >
-                  <div
-                    className="pl-6 lg:pl-0 md:w-full lg:w-1/6 hidden md:block"
-                    key={s.id}
-                  >
-                    <img alt="webex devices" key={s.id} src={s.imgsrc} />
+                <div className="flex flex-wrap items-center mb-6 -mx-12 md:mb-4 md:mb-0">
+                  <div className="hidden pl-6 lg:pl-0 md:w-full lg:w-1/6 md:block">
+                    <DeviceImage alt="webex devices" src={s.imgsrc} />
                   </div>
-                  <div className="md:w-full lg:w-5/6 pl-8 lg:mt-4" key={s.id}>
+                  <div className="pl-8 md:w-full lg:w-5/6 lg:mt-4">
                     <a
-                      className="font-light m-0 text-lg text-black leading-10"
-                      key={s.id}
+                      className="m-0 text-lg font-light leading-10 text-black"
                       href={s.href}
                       data-click-id={s["data-id"]}
                     >
@@ -77,7 +73,6 @@ const Devices = () => {
                     </a>
                     <div
                       className={`w-auto text-xs font-light h-8 whitespace-pre-line hidden md:block ${styles["devices-tablet"]} ${styles["max-width-devices"]}`}
-                      key={s.id}
                     >
                       {s.desc}
                     </div>

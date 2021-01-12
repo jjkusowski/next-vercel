@@ -15,18 +15,16 @@ const Resources = () => {
                 key={s.id}
               >
                 <a
-                  className="text-base font-light leading-loose text-black  lg:text-lg"
+                  className="text-base font-light leading-loose text-black lg:text-lg"
                   target="_blank"
                   rel="noreferrer"
                   href={s.href}
-                  key={s.id}
                   data-click-id={s["data-id"]}
                 >
                   {s.name}
                 </a>
                 <div
                   className={`w-auto font-light max-w-xs	whitespace-pre-line hidden md:block ${styles["devices-tablet"]} ${styles["max-width-devices"]}`}
-                  key={s.id}
                 >
                   {s.description}
                 </div>
