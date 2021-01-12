@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/tabindex-no-positive */
+import Image from "next/image";
 import data from "./submenu.json";
 import styles from "./navbar.module.css";
 
@@ -10,12 +11,12 @@ const Learn = () => {
       <div
         className={`px-4 lg:px-8 xl:px-12 py-12 flex ${styles["flex-wrapper"]} w-full relative left-0 ${styles["border-top"]}`}
       >
-        <div className="px-0 flex flex-wrap -mx-4 lg:w-9/12">
-          <ul className="w-full lg:flex flex-wrap list-none m-0 p-0 h-16">
+        <div className="flex flex-wrap px-0 -mx-4 lg:w-9/12">
+          <ul className="flex-wrap w-full h-16 p-0 m-0 list-none lg:flex">
             <div className="lg:grid lg:grid-cols-12 md:flex md:flex-wrap">
               {data.learnLeft.map((s) => (
                 <li
-                  className="text-sm font-normal py-2 lg:py-0 lg:h-32 w-full max-w-lg md:col-span-6 lg:px-10 md:px-8 xl:px-16 md:w-1/2 lg:w-full"
+                  className="w-full max-w-lg py-2 text-sm font-normal lg:py-0 lg:h-32 md:col-span-6 lg:px-10 md:px-8 xl:px-16 md:w-1/2 lg:w-full"
                   key={s.id}
                 >
                   <a
@@ -24,13 +25,11 @@ const Learn = () => {
                     target="_blank"
                     rel="noreferrer"
                     data-click-id={s["data-id"]}
-                    key={s.id}
                   >
                     {s.name}
                   </a>
                   <div
                     className={`w-auto text-xs font-light max-size xl:max-w-xs whitespace-pre-line ${styles["desc-color"]} hidden md:block`}
-                    key={s.id}
                   >
                     {s.description}
                   </div>
@@ -42,35 +41,32 @@ const Learn = () => {
         <div
           className={`lg:w-4/12 list-none -mx-8 pl-12 ${styles["border-style"]} ${styles["webex-workspaces"]}`}
         >
-          <div className="text-lg  mb-6 -ml-8">Webex workspaces</div>
+          <div className="mb-6 -ml-8 text-lg">Webex workspaces</div>
           {data.learnRight.map((s) => (
-            <div className="mb-4 flex flex-wrap -mx-8" key={s.id}>
-              <div className="col-xs-2" key={s.id}>
-                <img
+            <div className="flex flex-wrap mb-4 -mx-8" key={s.id}>
+              <div className="col-xs-2">
+                <Image
                   className="w-28"
                   width="120"
+                  height="70"
                   alt="personal"
                   src={s.imageSrc}
-                  key={s.id}
                 />
               </div>
-              <div className="col-xs-10" key={s.id}>
+              <div className="col-xs-10">
                 <a
                   href={s.href}
                   className="wbx-workspace-link"
                   data-click-id={s["data-id"]}
-                  key={s.id}
                 >
                   <div
                     className={`${styles["wbx-header-product-eyebrow"]} ${styles["wh-item-title"]}`}
-                    key={s.id}
                   >
-                    <span key={s.id}>{s.name}</span>
-                    <p className="text-xs text-gray-600 flex" key={s.id}>
+                    <span>{s.name}</span>
+                    <p className="flex text-xs text-gray-600">
                       <svg
                         className="relative"
                         width="15"
-                        key={s.id}
                         height="15"
                         viewBox="0 0 30 30"
                       >
