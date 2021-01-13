@@ -13,6 +13,8 @@
     "createComponent": "node componentBuilder.js"
   },
   "dependencies": {
+    "@plaiceholder/base64": "^1.0.0",
+    "@plaiceholder/next": "^1.0.0",
     "@react-hook/window-size": "^3.0.7",
     "axios": "^0.21.1",
     "lodash": "^4.17.20",
