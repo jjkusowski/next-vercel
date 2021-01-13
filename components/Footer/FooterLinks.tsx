@@ -83,7 +83,7 @@ const FooterRegionPicker = () => {
   const collapsedContainerClassList = open ? "" : `${styles.collapsed}`;
   const collapsedULClassList = open ? "show" : "hidden";
 
-  const { displayName: currentLocaleDisplayName } = countries.find(
+  const { displayName: currentLocaleDisplayName } = countries?.find(
     (countryData) => countryData.dataId === locale
   );
 

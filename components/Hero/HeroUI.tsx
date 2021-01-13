@@ -1,8 +1,7 @@
 /* eslint-disable camelcase */
-import { find } from "lodash";
+
 import Image from "next/image";
-import { Link, RichTextBlock } from "prismic-reactjs";
-import usePageBodyData from "../../hooks/usePageBodyData";
+import { RichTextBlock } from "prismic-reactjs";
 import HeroCallToAction from "../HeroCallToAction";
 import SignupForm from "../SignupForm";
 import Text from "../Text";
