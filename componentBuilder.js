@@ -32,7 +32,9 @@ const createTests = (dirPath, componentName) => {
   console.log("friendly reminder to add test suite NOW.");
 };
 const createStorybook = (dirPath, componentName) => {
-  // use when we add storybook to component story
+  const filePath = `${dirPath}/${componentName}.stories.tsx`;
+  const fileContent = `import ${componentName}UI from "./${componentName}UI";\n\nexport default {\n  component: ${componentName}UI,\n  title: "${componentName}",\n};\n`;
+  fs.writeFileSync(filePath, fileContent);
 };
 
 const createFiles = (dirPath, componentName) => {
@@ -40,6 +42,7 @@ const createFiles = (dirPath, componentName) => {
   createUI(dirPath, componentName);
   createIndex(dirPath, componentName);
   createInterfaces(dirPath);
+  createStorybook(dirPath, componentName);
 };
 
 const createDir = (dirPath) => {

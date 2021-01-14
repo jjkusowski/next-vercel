@@ -1,18 +1,12 @@
-import { RichText, RichTextBlock, RichTextProps } from "prismic-reactjs";
+import { RichText } from "prismic-reactjs";
+import { TextComponent } from "./interface";
 
-type StyledRichTextBlock = RichTextBlock & { label?: string };
-
-interface IText extends RichTextProps {
-  className?: string;
-  children: StyledRichTextBlock[];
-}
-
-const Text = ({
+const Text: TextComponent = ({
   className = "",
   children,
   linkResolver,
   ...rest
-}: IText): JSX.Element => {
+}) => {
   if (className) {
     children.forEach((child) => {
       // eslint-disable-next-line no-param-reassign
