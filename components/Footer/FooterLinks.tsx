@@ -6,7 +6,7 @@ import data from "./data";
 import styles from "./footer.module.css";
 import { LocaleKey } from "../../common/layouts/interfaces";
 import { FooterLinkListComponent } from "./interfaces";
-import messages from "../../common/layouts/translations";
+import { footerMessages as messages } from "../../common/layouts/translations";
 import links from "../../common/layouts/links";
 import useCurrentLocale from "../../hooks/useCurrentLocale";
 import ClickAwayWrapper from "../ClickAwayWrapper";
