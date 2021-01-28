@@ -1,7 +1,7 @@
 import { useIntl } from "react-intl";
 import styles from "./footer.module.css";
 import { LocaleKey } from "../../common/layouts/interfaces";
-import messages from "../../common/layouts/translations";
+import { footerMessages as messages } from "../../common/layouts/translations";
 
 const FooterLegal = (): JSX.Element => {
   const { formatMessage } = useIntl();

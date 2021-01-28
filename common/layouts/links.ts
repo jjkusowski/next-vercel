@@ -119,6 +119,15 @@ export default defineMessages({
     id: getId(Keys.Blog),
     defaultMessage: "https://blog.webex.com/",
   },
+  [Keys.Accessibility]: {
+    id: getId(Keys.Accessibility),
+    defaultMessage: "https://www.webex.com/accessibility.html",
+  },
+  [Keys.Security]: {
+    id: getId(Keys.Security),
+    defaultMessage:
+      "https://www.cisco.com/c/en/us/about/trust-center/webex.html#%7Edata-protection-and-privacy",
+  },
   [Keys.WebinarsDemos]: {
     id: getId(Keys.WebinarsDemos),
     defaultMessage: "https://www.webex.com/learn/webinars-demos.html",
@@ -178,5 +187,70 @@ export default defineMessages({
   [Keys.Trademarks]: {
     id: getId(Keys.Trademarks),
     defaultMessage: "https://www.cisco.com/web/siteassets/legal/trademark.html",
+  },
+  [Keys.DeskCamera]: {
+    id: getId(Keys.DeskCamera),
+    defaultMessage: "https://www.webex.com/desk-camera-sign-up.html",
+  },
+  [Keys.BoardSeries]: {
+    id: getId(Keys.BoardSeries),
+    defaultMessage: "https://hardware.webex.com/devices/board-series",
+  },
+  [Keys.Accessories]: {
+    id: getId(Keys.Accessories),
+    defaultMessage: "https://hardware.webex.com/devices/accessories",
+  },
+  [Keys.Cameras]: {
+    id: getId(Keys.Cameras),
+    defaultMessage: "https://hardware.webex.com/devices/cameras",
+  },
+  [Keys.DeskSeries]: {
+    id: getId(Keys.DeskSeries),
+    defaultMessage: "https://hardware.webex.com/devices/desk-series",
+  },
+  [Keys.RoomSeries]: {
+    id: getId(Keys.RoomSeries),
+    defaultMessage: "https://hardware.webex.com/devices/room-series",
+  },
+  [Keys.Codecs]: {
+    id: getId(Keys.Codecs),
+    defaultMessage: "https://hardware.webex.com/devices/codecs",
+  },
+  [Keys.RoomNavigator]: {
+    id: getId(Keys.RoomNavigator),
+    defaultMessage: "https://hardware.webex.com/devices/room-navigator",
+  },
+  [Keys.RoomKitSeries]: {
+    id: getId(Keys.RoomKitSeries),
+    defaultMessage: "https://hardware.webex.com/devices/room-kit-series",
+  },
+  [Keys.PanoramaSeries]: {
+    id: getId(Keys.PanoramaSeries),
+    defaultMessage: "https://hardware.webex.com/devices/panorama",
+  },
+  [Keys.Cart]: {
+    id: getId(Keys.Cart),
+    defaultMessage: "https://cart.webex.com/sign-up-webex",
+  },
+  [Keys.PersonalOffices]: {
+    id: getId(Keys.PersonalOffices),
+    defaultMessage: "https://hardware.webex.com/workspaces/personal-offices",
+  },
+  [Keys.HuddleSpaces]: {
+    id: getId(Keys.HuddleSpaces),
+    defaultMessage: "https://hardware.webex.com/workspaces/huddle",
+  },
+  [Keys.CoCreationAreas]: {
+    id: getId(Keys.CoCreationAreas),
+    defaultMessage: "https://hardware.webex.com/workspaces/co-creation",
+  },
+  [Keys.MeetingRooms]: {
+    id: getId(Keys.MeetingRooms),
+    defaultMessage: "https://hardware.webex.com/workspaces/meeting",
+  },
+  [Keys.SpecialPurposeRooms]: {
+    id: getId(Keys.SpecialPurposeRooms),
+    defaultMessage:
+      "https://hardware.webex.com/workspaces/special-purpose-rooms",
   },
 });

@@ -1,7 +1,12 @@
-import data from "./submenu.json";
+import { useIntl } from "react-intl";
 import styles from "./navbar.module.css";
+import { resources } from "./data";
+import links from "../../common/layouts/links";
+import { navMessages } from "../../common/layouts/translations";
 
 const Resources = () => {
+  const { formatMessage } = useIntl();
+
   return (
     <div className="left-0 right-0 w-auto h-auto pt-0 pl-0 mt-6 text-left bg-white lg:fixed top-20">
       <div
@@ -9,24 +14,23 @@ const Resources = () => {
       >
         <div className="flex flex-wrap px-0 py-8 -mx-12 list-none md:py-12 md:-mx-8">
           <ul className="flex flex-wrap w-full p-0 m-0 antialiased font-normal list-none">
-            {data.resources.map((s) => (
+            {resources.map((resource) => (
               <li
                 className="w-full px-4 py-2 mb-0 text-sm font-normal md:w-1/2 lg:w-1/3 md:h-40 md:py-0"
-                key={s.id}
+                key={resource.nameKey}
               >
                 <a
                   className="text-base font-light leading-loose text-black lg:text-lg"
                   target="_blank"
                   rel="noreferrer"
-                  href={s.href}
-                  data-click-id={s["data-id"]}
+                  href={formatMessage(links[resource.hrefKey])}
                 >
-                  {s.name}
+                  {formatMessage(navMessages[resource.nameKey])}
                 </a>
                 <div
                   className={`w-auto font-light max-w-xs	whitespace-pre-line hidden md:block ${styles["devices-tablet"]} ${styles["max-width-devices"]}`}
                 >
-                  {s.description}
+                  {formatMessage(navMessages[resource.descriptionKey])}
                 </div>
               </li>
             ))}
