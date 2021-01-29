@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -13,10 +16,15 @@ module.exports = {
       center: true,
     },
     extend: {
+      fontFamily: {
+        sans: ["CiscoSansTT", ...defaultTheme.fontFamily.sans],
+      },
       transitionProperty: {
         height: "height",
       },
       colors: {
+        "webex-title": "#6218CA",
+        "webex-gray": "#00000080",
         "accent-1": "#333",
         brand: {
           footer: "#121212",

@@ -343,4 +343,8 @@ export default defineMessages({
     id: getId(Keys.Email_Placeholder),
     defaultMessage: "Email Address",
   },
+  [Keys.GetItFree]: {
+    id: getId(Keys.GetItFree),
+    defaultMessage: "Get it now, for free",
+  },
 });

@@ -253,4 +253,8 @@ export default defineMessages({
     defaultMessage:
       "https://hardware.webex.com/workspaces/special-purpose-rooms",
   },
+  [Keys.AllNewWebex]: {
+    id: getId(Keys.AllNewWebex),
+    defaultMessage: "https://webex.com/all-new-webex.html",
+  },
 });

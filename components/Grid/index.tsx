@@ -8,7 +8,17 @@ const handleNumberClassName = (type) => (gridNumber) => {
 const handleObjectClassName = (type) => (gridObj) => {
   const breakpointClasses = Object.entries(gridObj).map(
     ([breakpoint, gridNum]) => {
-      return `${breakpoint}:${GridClasses.Grid}-${type}-${gridNum}`;
+      if (gridNum === 0) {
+        // eslint-disable-next-line no-param-reassign
+        gridNum = "none";
+      }
+      const gridClass = `${breakpoint}:${GridClasses.Grid}`;
+
+      if (breakpoint === "xs") {
+        return `${GridClasses.Grid} ${gridClass}-${type}-${gridNum}`;
+      }
+
+      return `${gridClass} ${gridClass}-${type}-${gridNum}`;
     }
   );
 
@@ -34,7 +44,7 @@ const generateClassNames = (rows: Row, cols: Col): string => {
   const rowClass = rowClassNameGenerator(rows);
   const colClass = colClassNameGenerator(cols);
 
-  return `${GridClasses.Grid} ${rowClass} ${colClass}`;
+  return `${rowClass} ${colClass}`;
 };
 
 const Grid = (props: IGridProps): JSX.Element => {
@@ -42,7 +52,7 @@ const Grid = (props: IGridProps): JSX.Element => {
 
   const classes = generateClassNames(rows, cols);
 
-  const finalClasses = className.concat(classes);
+  const finalClasses = className.concat(" ", classes);
 
   return <div className={finalClasses}>{children}</div>;
 };

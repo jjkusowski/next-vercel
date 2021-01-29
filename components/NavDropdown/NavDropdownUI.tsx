@@ -25,7 +25,9 @@ const NavDropdownUI = (props: INavDropdownUIProps): JSX.Element => {
   return (
     <>
       <a
-        className={`no-underline flex justify-between items-center hover:text-blue ${classes}`}
+        className={`no-underline flex justify-between items-center hover:text-blue ${classes} ${
+          open && "text-blue"
+        }`}
         href={href}
         onClick={handleClick}
       >
@@ -47,7 +49,12 @@ const NavDropdownUI = (props: INavDropdownUIProps): JSX.Element => {
           />
         </svg>
       </a>
-      {open && dropdownElement}
+      {open && (
+        <div className="lg:pb-16 lg:shadow-lg lg:fixed lg:top-0 lg:left-0 lg:bg-white lg:w-full lg:mt-20">
+          <div className="w-11/12 mx-auto lg:border-t" />
+          {dropdownElement}
+        </div>
+      )}
     </>
   );
 };
