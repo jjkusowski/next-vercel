@@ -27,10 +27,12 @@ const NavItems = () => {
     <>
       <NavListItem classes="lg:order-last lg:ml-6 xl:ml-3">
         <Link href={formatMessage(links[LocaleKey.Cart])}>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="block mx-auto btn-blue hover:bg-blue-darker md:whitespace-nowrap focus:shadow-outline">
-            {formatMessage(messages.start)}
-          </a>
+          <div className="flex">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="mx-auto btn-blue hover:bg-blue-darker md:whitespace-nowrap focus:shadow-outline">
+              {formatMessage(messages.start)}
+            </a>
+          </div>
         </Link>
       </NavListItem>
       <NavListItem>
@@ -118,7 +120,7 @@ const NavUI = (
   // limit height and overflow when closed or closing, expand it to screen size when open or opening
   const openClassList = isOpenOrOpening
     ? "h-screen overflow-y-scroll"
-    : "h-20 overflow-y-hidden";
+    : "h-20 overflow-y-hidden lg:overflow-y-auto";
 
   return (
     <nav

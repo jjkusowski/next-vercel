@@ -1,3 +1,5 @@
+import { FunctionComponent } from "react";
+
 // eslint-disable-next-line import/prefer-default-export
 export enum LocaleKey {
   Cart = "cart",
@@ -109,4 +111,12 @@ export enum LocaleKey {
   SignInHelp = "signInHelp",
   UserName = "userName",
   Email_Placeholder = "emailPlaceholder",
+  AllNewWebex = "allNewWebex",
+  GetItFree = "getItFree",
 }
+export interface IWrapperComponentProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export type WrapperComponent = FunctionComponent<IWrapperComponentProps>;

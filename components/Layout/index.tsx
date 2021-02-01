@@ -1,12 +1,12 @@
 import { FunctionComponent } from "react";
+import { IWrapperComponentProps } from "../../common/layouts/interfaces";
 import Footer from "../Footer";
 import Nav from "../Nav";
 
-interface IWrapperComponentProps {
-  children: React.ReactNode;
+interface ILayoutProps extends IWrapperComponentProps {
   ctaText?: string;
 }
-type WrapperComponent = FunctionComponent<IWrapperComponentProps>;
+type WrapperComponent = FunctionComponent<ILayoutProps>;
 
 const Layout: WrapperComponent = ({ children, ctaText }) => {
   return (
