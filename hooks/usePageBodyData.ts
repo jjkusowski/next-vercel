@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Resolver, PageData } from "../utils/resolverFactory";
+import { PageData } from "../utils/resolverFactory";
 import PageContext from "../state/PageContext";
 
 const usePageBodyData = (): PageData => {
