@@ -1,9 +1,15 @@
 /* eslint-disable jsx-a11y/tabindex-no-positive */
 import Image from "next/image";
-import data from "./submenu.json";
+import { useIntl } from "react-intl";
 import styles from "./navbar.module.css";
+import { learn, workspaces } from "./data";
+import links from "../../common/layouts/links";
+import { navMessages } from "../../common/layouts/translations";
+import { LocaleKey } from "../../common/layouts/interfaces";
 
 const Learn = () => {
+  const { formatMessage } = useIntl();
+
   return (
     <div
       className={`top-20 right-0 left-0 px-0 lg:fixed h-auto w-auto mt-6 text-left bg-white ${styles["animation-learn"]}`}
@@ -14,24 +20,23 @@ const Learn = () => {
         <div className="flex flex-wrap px-0 -mx-4 lg:w-9/12">
           <ul className="flex-wrap w-full h-16 p-0 m-0 list-none lg:flex">
             <div className="lg:grid lg:grid-cols-12 md:flex md:flex-wrap">
-              {data.learnLeft.map((s) => (
+              {learn.map((helpResource) => (
                 <li
                   className="w-full max-w-lg py-2 text-sm font-normal lg:py-0 lg:h-32 md:col-span-6 lg:px-10 md:px-8 xl:px-16 md:w-1/2 lg:w-full"
-                  key={s.id}
+                  key={helpResource.nameKey}
                 >
                   <a
                     className="text-lg font-light text-black"
-                    href={s.href}
+                    href={formatMessage(links[helpResource.hrefKey])}
                     target="_blank"
                     rel="noreferrer"
-                    data-click-id={s["data-id"]}
                   >
-                    {s.name}
+                    {formatMessage(navMessages[helpResource.nameKey])}
                   </a>
                   <div
                     className={`w-auto text-xs font-light max-size xl:max-w-xs whitespace-pre-line ${styles["desc-color"]} hidden md:block`}
                   >
-                    {s.description}
+                    {formatMessage(navMessages[helpResource.descriptionKey])}
                   </div>
                 </li>
               ))}
@@ -41,28 +46,30 @@ const Learn = () => {
         <div
           className={`lg:w-4/12 list-none -mx-8 pl-12 ${styles["border-style"]} ${styles["webex-workspaces"]}`}
         >
-          <div className="mb-6 -ml-8 text-lg">Webex workspaces</div>
-          {data.learnRight.map((s) => (
-            <div className="flex flex-wrap mb-4 -mx-8" key={s.id}>
+          <div className="mb-6 -ml-8 text-lg">
+            {formatMessage(navMessages[LocaleKey.Workspaces])}
+          </div>
+          {workspaces.map((workspace) => (
+            <div className="flex flex-wrap mb-4 -mx-8" key={workspace.nameKey}>
               <div className="col-xs-2">
                 <Image
                   className="w-28"
                   width="120"
                   height="70"
                   alt="personal"
-                  src={s.imageSrc}
+                  src={workspace.imageSrc}
                 />
               </div>
               <div className="col-xs-10">
                 <a
-                  href={s.href}
+                  href={formatMessage(links[workspace.hrefKey])}
                   className="wbx-workspace-link"
-                  data-click-id={s["data-id"]}
+                  data-click-id={workspace["data-id"]}
                 >
                   <div
                     className={`${styles["wbx-header-product-eyebrow"]} ${styles["wh-item-title"]}`}
                   >
-                    <span>{s.name}</span>
+                    <span>{formatMessage(navMessages[workspace.nameKey])}</span>
                     <p className="flex text-xs text-gray-600">
                       <svg
                         className="relative"
@@ -78,7 +85,7 @@ const Learn = () => {
                           transform="translate(.122 .12)"
                         />
                       </svg>
-                      {s.capacity}
+                      {workspace.capacity}
                     </p>
                   </div>
                 </a>

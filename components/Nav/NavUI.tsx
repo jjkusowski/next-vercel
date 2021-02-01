@@ -1,11 +1,14 @@
 import { forwardRef } from "react";
 import { useIntl } from "react-intl";
 import HamburgerMenu from "react-hamburger-menu";
+import Link from "next/link";
 import NavDropdown from "../NavDropdown";
 import NavLink from "../NavLink";
 import { Devices, Learn, Resources, SignIn, Solutions } from "../NavSubmenus";
 import messages from "./translations";
 import { INavUIProps, NavStates } from "./interfaces";
+import links from "../../common/layouts/links";
+import { LocaleKey } from "../../common/layouts/interfaces";
 
 const NavListItem = ({ children = null, classes = "" }) => (
   <li
@@ -23,48 +26,47 @@ const NavItems = () => {
   return (
     <>
       <NavListItem classes="lg:order-last lg:ml-6 xl:ml-3">
-        <button
-          className="block mx-auto btn-blue hover:bg-blue-darker md:whitespace-nowrap focus:shadow-outline"
-          type="button"
-          onClick={() => alert("clicked")}
-        >
-          {formatMessage(messages.start)}
-        </button>
+        <Link href={formatMessage(links[LocaleKey.Cart])}>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a className="block mx-auto btn-blue hover:bg-blue-darker md:whitespace-nowrap focus:shadow-outline">
+            {formatMessage(messages.start)}
+          </a>
+        </Link>
       </NavListItem>
       <NavListItem>
         <NavDropdown
           classes=""
           wrapperClasses=""
           label={formatMessage(messages.solutions)}
-          url="/video-conferencing"
+          href="/video-conferencing"
           dropdownElement={<Solutions />}
         />
       </NavListItem>
       <NavListItem>
         <NavLink
           label={formatMessage(messages.plans)}
-          url="/pricing/index.html"
+          href={formatMessage(links[LocaleKey.Plans])}
           id="plans-pricing"
         />
       </NavListItem>
       <NavListItem>
         <NavDropdown
           label={formatMessage(messages.devices)}
-          url="#"
+          href="#"
           dropdownElement={<Devices />}
         />
       </NavListItem>
       <NavListItem>
         <NavDropdown
           label={formatMessage(messages.resources)}
-          url="/products/integrations/index.html"
+          href={formatMessage(links[LocaleKey.Integrations])}
           dropdownElement={<Resources />}
         />
       </NavListItem>
       <NavListItem>
         <NavDropdown
           label={formatMessage(messages.learn)}
-          url="https://help.webex.com/?language=en-us"
+          href={formatMessage(links[LocaleKey.HelpCenter])}
           dropdownElement={<Learn />}
         />
       </NavListItem>
@@ -72,21 +74,22 @@ const NavItems = () => {
       <NavListItem>
         <NavLink
           label={formatMessage(messages.join)}
-          url="#"
+          href="#"
           id="join-meeting"
+          vanityUrl
         />
       </NavListItem>
       <NavListItem>
         <NavLink
           label={formatMessage(messages.download)}
-          url="/downloads.html"
+          href={formatMessage(links[LocaleKey.Downloads])}
           id="download"
         />
       </NavListItem>
       <NavListItem>
         <NavDropdown
           label={formatMessage(messages.signIn)}
-          url="#"
+          href="#"
           dropdownElement={<SignIn />}
         />
       </NavListItem>
@@ -98,6 +101,8 @@ const NavUI = (
   { isScrolledTop, navState, toggleMenu }: INavUIProps,
   ref
 ): JSX.Element => {
+  const { formatMessage } = useIntl();
+
   // relevant nav state bools
   const isOpen = navState === NavStates.OPEN;
   const isOpenOrOpening = isOpen || navState === NavStates.OPENING;
@@ -123,7 +128,7 @@ const NavUI = (
       <div className="px-4 mx-auto sm:px-6 lg:px-8 xl:px-0 xl:w-11/12 md:max-w-2xl lg:max-w-full">
         <div className="flex items-center justify-between flex-1 h-20 sm:items-stretch lg:text-xs xl:text-sm">
           <div className="flex items-center flex-shrink-0 w-32 lg:w-20 xl:w-32">
-            <a href="/">
+            <a href={formatMessage(links[LocaleKey.Webex])}>
               <img
                 className="block w-auto"
                 src="/logo-webex.png"

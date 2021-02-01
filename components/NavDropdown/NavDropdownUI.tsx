@@ -5,7 +5,7 @@ export interface INavDropdownProps {
   wrapperClasses?: string;
   label: string;
   dropdownElement: JSX.Element;
-  url: string;
+  href: string;
 }
 
 interface INavDropdownUIProps extends INavDropdownProps {
@@ -18,7 +18,7 @@ const NavDropdownUI = (props: INavDropdownUIProps): JSX.Element => {
     open,
     label,
     dropdownElement,
-    url,
+    href,
     handleClick,
     classes = "",
   } = props;
@@ -26,7 +26,7 @@ const NavDropdownUI = (props: INavDropdownUIProps): JSX.Element => {
     <>
       <a
         className={`no-underline flex justify-between items-center hover:text-blue ${classes}`}
-        href={url}
+        href={href}
         onClick={handleClick}
       >
         {label}
