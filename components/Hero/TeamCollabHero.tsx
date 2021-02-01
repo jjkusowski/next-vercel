@@ -1,10 +1,22 @@
-/* eslint-disable camelcase */
-
 import Image from "next/image";
 import { RichTextBlock } from "prismic-reactjs";
+import usePageData from "../../hooks/useResolvedPageData";
+import resolverFactory from "../../utils/resolverFactory";
 import HeroCallToAction from "../HeroCallToAction";
 import SignupForm from "../SignupForm";
 import Text from "../Text";
+
+type DataFields = string[][];
+
+const dataFields: DataFields = [
+  ["hero_image", "image"],
+  ["signup_form", "form"],
+  ["hero_title", "title"],
+  ["hero_header", "header"],
+  ["hero_copy", "copy"],
+];
+
+const heroResolver = resolverFactory(dataFields);
 
 interface IForm {
   placeholder_text: string;
@@ -58,4 +70,10 @@ const HeroUI = ({ heroData }: IHeroProps): JSX.Element => {
   );
 };
 
-export default HeroUI;
+const Hero = (): JSX.Element => {
+  const heroData = usePageData(heroResolver);
+
+  return <HeroUI heroData={heroData as any} />;
+};
+
+export default Hero;

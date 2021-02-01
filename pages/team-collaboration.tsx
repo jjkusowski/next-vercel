@@ -8,11 +8,12 @@ import PageContext from "../state/PageContext";
 import Hero from "../components/Hero";
 import usePageBodyData from "../hooks/usePageBodyData";
 import Text from "../components/Text";
+import { PageTypes } from "../common/interfaces";
 
 export const getStaticProps: GetStaticProps = async () => {
   const restQuery = Prismic.getApi("https://webex.cdn.prismic.io/api/v2").then(
     (api) => {
-      return api.getSingle("team-collaboration").then(async (doc) => {
+      return api.getSingle(PageTypes.TeamCollab).then(async (doc) => {
         const { data } = await api.getByID(doc.data.signup_form.id);
 
         const finalDoc = {
@@ -32,7 +33,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      data,
+      data: {
+        ...data,
+        pageType: PageTypes.TeamCollab,
+      },
     },
   };
 };
@@ -132,7 +136,7 @@ const TeamCollaboration = ({ data }): JSX.Element => {
   return (
     <PageContext.Provider value={data}>
       <Layout ctaText={data.layout_cta_override_text}>
-        <Hero />
+        <Hero pageType={data.pageType} {...data} />
         <Body />
       </Layout>
     </PageContext.Provider>

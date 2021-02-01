@@ -52,7 +52,6 @@ Due to the aforementioned lack of fetching abstraction, we have provided a data 
 For instance:
 
 ```js
-
 const dataFields: DataFields = [
   ["hero_image", "image"],
   ["signup_form", "form"],
@@ -66,11 +65,10 @@ const heroResolver = resolverFactory(dataFields);
 const Hero = () => {
   const heroData = usePageData(heroResolver);
 
-  return <HeroUI heroData={heroData as any} />;
+  return <HeroUI heroData={heroData} />;
 };
 
 export default Hero;
-
 ```
 
 Where the 0th index in each `DataFields` array is a prismic API key, and the 1st index is an agnostic key to consume the data. The ideal is that we avoid re-writing client code if our data shape, data keys, or data source change.
@@ -78,6 +76,12 @@ Where the 0th index in each `DataFields` array is a prismic API key, and the 1st
 We then create a resolver via `resolverFactory`, and we pass that resolver into our `usePageData` hook, which will return the data with the requested keys set in the resolver.
 
 ## Writing Components
+
+### createComponent
+
+`yarn createComponent MyComponentName`
+
+Use this script for most component authoring needs. It will scaffold the below component file structure, leaving you ready to code.
 
 ### Basic component structure
 
