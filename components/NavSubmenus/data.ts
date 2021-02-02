@@ -51,7 +51,7 @@ export const devicesByName = {
     descriptionKey: LocaleKey.Cameras_Description,
     hrefKey: LocaleKey.Cameras,
     imageSrc:
-      "https://www.webex.com/content/dam/wbx/us/images/hp/header/accessories.svg",
+      "https://www.webex.com/content/dam/wbx/us/images/hp/header/cameras.svg",
   },
   [LocaleKey.DeskSeries]: {
     nameKey: LocaleKey.DeskSeries,

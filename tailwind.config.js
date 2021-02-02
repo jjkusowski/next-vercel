@@ -10,12 +10,19 @@ module.exports = {
   theme: {
     backgroundImage: () => ({
       circle: "url(../public/circle.svg)",
+      "devices-banner":
+        "url(https://www.webex.com/content/dam/wbx/us/images/hp/header/devices-banner.jpg)",
+      "devices-banner-overlay":
+        "url(https://www.webex.com/content/dam/wbx/us/images/hp/header/overlay.svg)",
     }),
     container: {
       padding: "2rem",
       center: true,
     },
     extend: {
+      fontSize: {
+        xs: ".82rem",
+      },
       fontFamily: {
         sans: ["CiscoSansTT", ...defaultTheme.fontFamily.sans],
       },
@@ -25,6 +32,7 @@ module.exports = {
       colors: {
         "webex-title": "#6218CA",
         "webex-gray": "#00000080",
+        "webex-purple": "#D541D8",
         "accent-1": "#333",
         brand: {
           footer: "#121212",
