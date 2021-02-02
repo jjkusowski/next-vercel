@@ -132,7 +132,7 @@ const Devices = (): JSX.Element => {
           </div>
         </div>
       </div>
-      {/* dt device grid -- hidden lg- */}
+      {/* dt device grid -- hidden md- */}
       <Grid
         cols={{ xs: 1, md: 3 }}
         rows={{ xs: 0, md: 0 }}
@@ -148,7 +148,7 @@ const Devices = (): JSX.Element => {
           </div>
         </Grid>
       </Grid>
-      {/* mobile device list -- hidden lg+ */}
+      {/* mobile device list -- hidden md+ */}
       <ul className="grid gap-4 py-4 md:hidden">
         {devicesListSmall}
         <li>
