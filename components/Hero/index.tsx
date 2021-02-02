@@ -1,25 +1,26 @@
-import { filter, find } from "lodash";
-import usePageData from "../../hooks/usePageData";
-import usePageBodyData from "../../hooks/usePageBodyData";
-import resolverFactory from "../../utils/resolverFactory";
-import HeroUI from "./HeroUI";
+import {
+  PageTypes,
+  SliceComponent,
+  SliceParentComponent,
+} from "../../common/interfaces";
+import NullComp from "../Null";
+import TeamCollabHero from "./TeamCollabHero";
+import InfoHero from "./InfoHero";
 
-type DataFields = string[][];
+const heroComponentsByPageType = {
+  [PageTypes.Info]: InfoHero,
+  [PageTypes.TeamCollab]: TeamCollabHero,
+};
 
-const dataFields: DataFields = [
-  ["hero_image", "image"],
-  ["signup_form", "form"],
-  ["hero_title", "title"],
-  ["hero_header", "header"],
-  ["hero_copy", "copy"],
-];
+const getHeroComponentByPageType = (pageType: string): SliceComponent => {
+  return heroComponentsByPageType[pageType] || NullComp;
+};
 
-const heroResolver = resolverFactory(dataFields);
+const Hero: SliceParentComponent = (props) => {
+  const { pageType } = props;
+  const HeroComponent = getHeroComponentByPageType(pageType);
 
-const Hero = () => {
-  const heroData = usePageData(heroResolver);
-
-  return <HeroUI heroData={heroData as any} />;
+  return <HeroComponent {...props} />;
 };
 
 export default Hero;

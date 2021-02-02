@@ -1,5 +1,5 @@
 import { RichTextBlock } from "prismic-reactjs";
-import usePageData from "../../hooks/usePageData";
+import useResolvedPageData from "../../hooks/useResolvedPageData";
 import resolverFactory from "../../utils/resolverFactory";
 import Text from "../Text";
 
@@ -19,7 +19,7 @@ const formActions = {
 };
 
 const SignupForm = () => {
-  const formData = usePageData(resolver);
+  const formData = useResolvedPageData(resolver);
   const { placeholder, ctaText, destination, legalText } = formData;
 
   const onSubmit = formActions[destination as string];
