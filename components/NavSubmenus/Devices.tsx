@@ -5,6 +5,7 @@ import links from "../../common/layouts/links";
 import { navMessages } from "../../common/layouts/translations";
 import Grid from "../Grid";
 import { devices, devicesByName } from "./data";
+import { NavSubmenu } from "./interfaces";
 
 interface IDevice {
   href: string;
@@ -70,7 +71,7 @@ const DeviceSmall = ({ device, colorClass }: IBaseDeviceProps) => {
   );
 };
 
-const Devices = ({ colorClass }): JSX.Element => {
+const Devices: NavSubmenu = ({ colorClass }) => {
   const { formatMessage } = useIntl();
   const featuredDevice = devicesByName[LocaleKey.DeskCamera];
 
