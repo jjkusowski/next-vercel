@@ -1,0 +1,44 @@
+@layer base {
+  h1 {
+    @apply block text-5xl leading-tight;
+  }
+  h2 {
+    @apply block text-4xl;
+  }
+  h3 {
+    @apply block text-2xl;
+  }
+  p {
+    @apply text-xl;
+  }
+  @font-face {
+    font-family: "CiscoSansTT";
+    src: url("/public/fonts/ciscosansheavy-webfont.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "CiscoSansTT";
+    src: url("/public/fonts/ciscosansregular-webfont.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "CiscoSansTT";
+    src: url("/public/fonts/ciscosanslight-webfont.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "CiscoSansTT";
+    src: url("/public/fonts/ciscosansextralight-webfont.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "CiscoSansTT";
+    src: url("/public/fonts/ciscosansthin-webfont.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+  }
+}

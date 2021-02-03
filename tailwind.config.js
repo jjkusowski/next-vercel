@@ -6,7 +6,17 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  purge: {
+    content: [
+      "./components/**/*.{js,ts,jsx,tsx}",
+      "./pages/**/*.{js,ts,jsx,tsx}",
+    ],
+    options: {
+      safelist: {
+        greedy: [/:grid/],
+      },
+    },
+  },
   theme: {
     backgroundImage: () => ({
       circle: "url(../public/circle.svg)",
@@ -42,7 +52,7 @@ module.exports = {
           footer: "#121212",
         },
         blue: {
-          default: "#01bceb",
+          DEFAULT: "#01bceb",
           darker: "#005073",
         },
       },
