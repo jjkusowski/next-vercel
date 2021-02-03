@@ -1,3 +1,4 @@
+import { ReactHTML } from "react";
 import { IWrapperComponentProps } from "../../common/layouts/interfaces";
 
 interface XSResponsiveGrid {
@@ -33,6 +34,7 @@ export type Col = number | ResponsiveGrid;
 export interface IGridProps extends IWrapperComponentProps {
   rows: Row;
   cols: Col;
+  component?: keyof ReactHTML;
 }
 
 export type GridItem = Row | Col;

@@ -7,6 +7,7 @@ import { LocaleKey } from "../../common/layouts/interfaces";
 import {navMessages} from "../../common/layouts/translations"
 import links from "../../common/layouts/links";
 import Grid from "../Grid";
+import { NavSubmenu } from "./interfaces";
 
 const List = ({ title, items }: {title: string, items: { label, href }[]}) => {
   return (
@@ -29,7 +30,7 @@ const List = ({ title, items }: {title: string, items: { label, href }[]}) => {
   )
 };
 
-const Solutions = () => {
+const Solutions: NavSubmenu = () => {
   const {formatMessage} = useIntl();
 
   const otherSolutions = solutions.map(({nameKey, hrefKey}) => ({
@@ -44,8 +45,8 @@ const Solutions = () => {
 
   return (
     <>
-      <div className="xl:nav-container">
-        <Grid cols={{xs: 0, lg: 5}} rows={{xs: 1, lg: 0}} className="gap-10 lg:grid lg:grid-cols-5 lg:w-full xl:nav-container lg:pt-6">
+      <div className="xl:nav-container lg:pt-6 lg:pb-12">
+        <Grid cols={{xs: 0, lg: 5}} rows={{xs: 1, lg: 0}} className="gap-10 lg:grid lg:grid-cols-5 lg:w-full xl:nav-container">
           <Grid cols={{xs: 1, lg: 4}} rows={{lg: 3}} className="gap-3 pt-4 lg:col-span-3 lg:gap-4 lg:pt-0">
             <div className="flex items-center justify-center lg:col-span-1 lg:pl-4 lg:self-auto">
               <Image layout="fixed" alt="solutions" src="https://www.webex.com/content/dam/wbx/us/images/hp/header/solutions.svg" height="50" width="75"/>

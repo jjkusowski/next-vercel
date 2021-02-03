@@ -18,3 +18,9 @@ export interface ISpace extends IBaseLink {
   capacity: string;
   alt: LocaleKey;
 }
+
+export interface ISubmenuProps {
+  colorClass?: string;
+}
+
+export type NavSubmenu = (props: ISubmenuProps) => JSX.Element;

@@ -3,7 +3,7 @@ interface INavLinkProps {
   href: string;
   id: string;
   vanityUrl?: boolean;
-  color?: string;
+  hoverClass?: string;
 }
 
 const onClickHandlers = {
@@ -20,7 +20,13 @@ const nullClick = (e) => {
 const getClickHandler = (id: string) => onClickHandlers[id] || nullClick;
 
 const NavLink = (props: INavLinkProps): JSX.Element => {
-  const { id, href, label, color, vanityUrl = false } = props;
+  const {
+    id,
+    href,
+    label,
+    hoverClass = "text-blue",
+    vanityUrl = false,
+  } = props;
   const clickHandler = getClickHandler(id);
 
   const anchorProps = vanityUrl
@@ -31,7 +37,7 @@ const NavLink = (props: INavLinkProps): JSX.Element => {
 
   return (
     <a
-      className="flex justify-start no-underline hover:text-blue"
+      className={`flex justify-start no-underline hover:${hoverClass}`}
       href={href}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...anchorProps}

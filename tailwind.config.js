@@ -33,6 +33,10 @@ module.exports = {
         "webex-title": "#6218CA",
         "webex-gray": "#00000080",
         "webex-purple": "#D541D8",
+        "webex-resources": "#FF3D67",
+        "webex-gold": "#ffb400",
+        "webex-green": "#30d557",
+        "webex-dark-blue": "#03688E",
         "accent-1": "#333",
         brand: {
           footer: "#121212",
