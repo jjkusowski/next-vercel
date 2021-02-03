@@ -2,7 +2,7 @@ import { GridClasses } from "../../lib/tailwind/interfaces";
 import { Col, GridItem, IGridProps, Row } from "./interfaces";
 
 const handleNumberClassName = (type) => (gridNumber) => {
-  return `${GridClasses.Grid}-${type}-${gridNumber}`;
+  return `${GridClasses.Grid} ${GridClasses.Grid}-${type}-${gridNumber}`;
 };
 
 const handleObjectClassName = (type) => (gridObj) => {
@@ -15,7 +15,7 @@ const handleObjectClassName = (type) => (gridObj) => {
       const gridClass = `${breakpoint}:${GridClasses.Grid}`;
 
       if (breakpoint === "xs") {
-        return `${GridClasses.Grid} ${gridClass}-${type}-${gridNum}`;
+        return `${GridClasses.Grid} ${GridClasses.Grid}-${type}-${gridNum}`;
       }
 
       return `${gridClass} ${gridClass}-${type}-${gridNum}`;
