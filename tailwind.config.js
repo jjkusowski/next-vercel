@@ -13,7 +13,7 @@ module.exports = {
     ],
     options: {
       safelist: {
-        greedy: [/:grid/],
+        greedy: [/:grid/, /webex/],
       },
     },
   },
