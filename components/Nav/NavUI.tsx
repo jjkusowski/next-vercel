@@ -9,6 +9,7 @@ import messages from "./translations";
 import { INavUIProps, NavStates } from "./interfaces";
 import links from "../../common/layouts/links";
 import { LocaleKey } from "../../common/layouts/interfaces";
+import NavPopup from "../NavPopup";
 
 const NavListItem = ({ children = null, classes = "" }) => (
   <li
@@ -41,7 +42,8 @@ const NavItems = () => {
           wrapperClasses=""
           label={formatMessage(messages.solutions)}
           href="/video-conferencing"
-          dropdownElement={<Solutions />}
+          dropdownElement={<Solutions colorClass="text-blue" />}
+          hoverClass="text-blue"
         />
       </NavListItem>
       <NavListItem>
@@ -49,27 +51,31 @@ const NavItems = () => {
           label={formatMessage(messages.plans)}
           href={formatMessage(links[LocaleKey.Plans])}
           id="plans-pricing"
+          hoverClass="text-webex-green"
         />
       </NavListItem>
       <NavListItem>
         <NavDropdown
           label={formatMessage(messages.devices)}
           href="#"
-          dropdownElement={<Devices />}
+          dropdownElement={<Devices colorClass="text-webex-purple" />}
+          hoverClass="text-webex-purple"
         />
       </NavListItem>
       <NavListItem>
         <NavDropdown
           label={formatMessage(messages.resources)}
           href={formatMessage(links[LocaleKey.Integrations])}
-          dropdownElement={<Resources />}
+          dropdownElement={<Resources colorClass="text-webex-resources" />}
+          hoverClass="text-webex-resources"
         />
       </NavListItem>
       <NavListItem>
         <NavDropdown
           label={formatMessage(messages.learn)}
           href={formatMessage(links[LocaleKey.HelpCenter])}
-          dropdownElement={<Learn />}
+          dropdownElement={<Learn colorClass="text-webex-gold" />}
+          hoverClass="text-webex-gold"
         />
       </NavListItem>
       <NavListItem classes="flex-grow hidden lg:flex" />
@@ -88,11 +94,11 @@ const NavItems = () => {
           id="download"
         />
       </NavListItem>
-      <NavListItem>
-        <NavDropdown
+      <NavListItem classes="relative">
+        <NavPopup
           label={formatMessage(messages.signIn)}
           href="#"
-          dropdownElement={<SignIn />}
+          popupElement={<SignIn />}
         />
       </NavListItem>
     </>
@@ -120,7 +126,7 @@ const NavUI = (
   // limit height and overflow when closed or closing, expand it to screen size when open or opening
   const openClassList = isOpenOrOpening
     ? "h-screen overflow-y-scroll"
-    : "h-20 overflow-y-hidden lg:overflow-y-auto";
+    : "h-20 overflow-y-hidden lg:overflow-y-visible";
 
   return (
     <nav

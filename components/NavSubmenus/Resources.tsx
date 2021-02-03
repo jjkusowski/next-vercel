@@ -1,42 +1,37 @@
 import { useIntl } from "react-intl";
-import styles from "./navbar.module.css";
 import { resources } from "./data";
 import links from "../../common/layouts/links";
 import { navMessages } from "../../common/layouts/translations";
+import Grid from "../Grid";
+import NavDropdownItem from "../NavDropdownItem";
+import { NavSubmenu } from "./interfaces";
 
-const Resources = () => {
+const Resources: NavSubmenu = ({ colorClass }) => {
   const { formatMessage } = useIntl();
 
   return (
-    <div className="left-0 right-0 w-auto h-auto pt-0 pl-0 mt-6 text-left bg-white lg:fixed top-20">
-      <div
-        className={`px-8 lg:px-32 w-full ${styles["border-top"]} relative left-0 mx-auto`}
+    <div className="pt-6 pb-16 md:pt-12 lg:nav-container xl:w-3/4">
+      <Grid
+        cols={{ xs: 1, md: 2, lg: 3 }}
+        rows={{ lg: 0 }}
+        component="ul"
+        className="gap-6 lg:gap-12"
       >
-        <div className="flex flex-wrap px-0 py-8 -mx-12 list-none md:py-12 md:-mx-8">
-          <ul className="flex flex-wrap w-full p-0 m-0 antialiased font-normal list-none">
-            {resources.map((resource) => (
-              <li
-                className="w-full px-4 py-2 mb-0 text-sm font-normal md:w-1/2 lg:w-1/3 md:h-40 md:py-0"
-                key={resource.nameKey}
-              >
-                <a
-                  className="text-base font-light leading-loose text-black lg:text-lg"
-                  target="_blank"
-                  rel="noreferrer"
-                  href={formatMessage(links[resource.hrefKey])}
-                >
-                  {formatMessage(navMessages[resource.nameKey])}
-                </a>
-                <div
-                  className={`w-auto font-light max-w-xs	whitespace-pre-line hidden md:block ${styles["devices-tablet"]} ${styles["max-width-devices"]}`}
-                >
-                  {formatMessage(navMessages[resource.descriptionKey])}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+        {resources.map((resource) => {
+          return (
+            <li key={resource.nameKey}>
+              <NavDropdownItem
+                hoverClass={colorClass}
+                label={formatMessage(navMessages[resource.nameKey])}
+                href={formatMessage(links[resource.hrefKey])}
+                description={formatMessage(
+                  navMessages[resource.descriptionKey]
+                )}
+              />
+            </li>
+          );
+        })}
+      </Grid>
     </div>
   );
 };

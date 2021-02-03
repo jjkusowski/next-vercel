@@ -1,24 +1,10 @@
-import { MouseEvent } from "react";
+import { INavPopupUIProps } from "./interfaces";
 
-export interface INavDropdownProps {
-  classes?: string;
-  wrapperClasses?: string;
-  hoverClass?: string;
-  label: string;
-  dropdownElement: JSX.Element;
-  href: string;
-}
-
-interface INavDropdownUIProps extends INavDropdownProps {
-  open: boolean;
-  handleClick: (e: MouseEvent) => void;
-}
-
-const NavDropdownUI = (props: INavDropdownUIProps): JSX.Element => {
+const NavPopupUI = (props: INavPopupUIProps): JSX.Element => {
   const {
     open,
     label,
-    dropdownElement,
+    popupElement,
     href,
     handleClick,
     classes = "",
@@ -52,13 +38,12 @@ const NavDropdownUI = (props: INavDropdownUIProps): JSX.Element => {
         </svg>
       </a>
       {open && (
-        <div className="lg:shadow-lg lg:fixed lg:top-0 lg:left-0 lg:bg-white lg:w-full lg:mt-20">
-          <div className="w-11/12 mx-auto lg:border-t" />
-          {dropdownElement}
+        <div className="lg:shadow-lg lg:top-0 lg:left-0 lg:bg-white lg:w-full">
+          {popupElement}
         </div>
       )}
     </>
   );
 };
 
-export default NavDropdownUI;
+export default NavPopupUI;

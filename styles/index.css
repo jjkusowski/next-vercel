@@ -64,6 +64,11 @@
   .nav-dropdown-content-container {
     @apply px-16 nav-container;
   }
+
+  .signin-container {
+    width: 468px;
+    box-shadow: 0px 2px 9px #39393b;
+  }
 }
 
 .btn-blue {

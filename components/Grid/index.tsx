@@ -1,3 +1,4 @@
+import React from "react";
 import { GridClasses } from "../../lib/tailwind/interfaces";
 import { Col, GridItem, IGridProps, Row } from "./interfaces";
 
@@ -48,13 +49,19 @@ const generateClassNames = (rows: Row, cols: Col): string => {
 };
 
 const Grid = (props: IGridProps): JSX.Element => {
-  const { rows, cols, children, className = "" } = props;
+  const { rows, cols, children, className = "", component = "div" } = props;
 
   const classes = generateClassNames(rows, cols);
 
   const finalClasses = className.concat(" ", classes);
 
-  return <div className={finalClasses}>{children}</div>;
+  return React.createElement(
+    component,
+    {
+      className: finalClasses,
+    },
+    children
+  );
 };
 
 export default Grid;
