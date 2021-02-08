@@ -3,8 +3,8 @@ set -e
 
 source ~/.nvm/nvm.sh
 
-# Use node 10
-nvm use 10
+# Use node 12
+nvm use 12
 npm install -g yarn
 
 # Clear the acche
