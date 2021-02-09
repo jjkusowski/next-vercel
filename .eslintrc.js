@@ -43,6 +43,17 @@ module.exports = {
     camelcase: 0,
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: [
+          "**/*.test.ts",
+          "**/*.spec.ts",
+          "playwright/*",
+          "e2e/**",
+        ],
+      },
+    ],
   },
   settings: {
     "import/resolver": {
