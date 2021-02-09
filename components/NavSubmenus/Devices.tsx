@@ -144,7 +144,7 @@ const Devices: NavSubmenu = ({ colorClass }) => {
       >
         {devicesListLarge}
         <Grid cols={12} rows={1} className="col-start-3">
-          <div className="lg:col-start-4 lg:pl-2">
+          <div className="lg:col-start-4 col-span-full">
             <DeviceLink
               hoverColor={colorClass}
               href={formatMessage(links[LocaleKey.DevicesRooms])}
