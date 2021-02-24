@@ -6,7 +6,6 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
 } from "next/document";
-import { initial } from "lodash";
 import Analytics from "../components/Analytics";
 
 class MyDocument extends Document {
@@ -35,10 +34,27 @@ class MyDocument extends Document {
           <meta name="format-detection" content="telephone=no" />
           <meta name="X-UA-Compatible" content="IE=edge,chrome=1" />
           <Analytics />
+          <link rel="preconnect" href="https://app.snipcart.com" />
+          <link rel="preconnect" href="https://cdn.snipcart.com" />
+          <link
+            rel="stylesheet"
+            href="https://cdn.snipcart.com/themes/v3.0.30/default/snipcart.css"
+          />
         </Head>
         <body>
+          <div
+            hidden
+            className="absolute"
+            id="snipcart"
+            data-api-key="YTdhNjQ2ODItY2IwOC00ODlhLTkzMjktNjZhNGVmYTI0OWFjNjM3NDk4MDMxNDM0ODY4NzYw"
+            data-config-modal-style="side"
+          />
           <Main />
           <NextScript />
+          <script
+            async
+            src="https://cdn.snipcart.com/themes/v3.0.30/default/snipcart.js"
+          />
         </body>
       </Html>
     );

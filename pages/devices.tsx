@@ -6,6 +6,7 @@ import Image from "next/image";
 import PageContext from "../state/PageContext";
 import Layout from "../components/Layout";
 import usePageData from "../hooks/usePageData";
+import AddToCart from "../components/AddToCart";
 
 export const getStaticProps: GetStaticProps = async () => {
   const restQuery = Prismic.getApi("https://webex.cdn.prismic.io/api/v2").then(
@@ -48,7 +49,7 @@ interface IDeviceProps {
 }
 
 const DeviceTile: Component<IDeviceProps> = ({ device }) => {
-  const { image, description, price, title } = device;
+  const { image, description, price, title, sku } = device;
   return (
     <div className="flex flex-col justify-center">
       <Image
@@ -59,6 +60,14 @@ const DeviceTile: Component<IDeviceProps> = ({ device }) => {
       <h3>{title}</h3>
       <span className="text-sm text-webex-gray">{description}</span>
       <div>${price}</div>
+      <AddToCart
+        sku={sku}
+        title={title}
+        imageUrl={image.url}
+        description={description}
+        url="#"
+        price={price}
+      />
     </div>
   );
 };
