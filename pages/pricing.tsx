@@ -14,6 +14,14 @@ import {
 } from "../lib/subscriptions";
 import PageContext from "../state/PageContext";
 
+interface IPricingPageProps {
+  plans: {
+    monthly: UIRatePlan[];
+    annually: UIRatePlan[];
+  };
+}
+type NextPricingPage = NextPage<IPricingPageProps>;
+
 const uiKeyNameMap = {
   [PlanName.FREE]: "Free",
   [PlanName.STARTER]: "Starter",
@@ -68,7 +76,7 @@ const getPricePretty = (price) => {
 };
 
 const Body = () => {
-  const pageData = usePageData();
+  const pageData = usePageData<IPricingPageProps>();
   const { plans } = pageData;
   const [planType, setPlanType] = useState(PlanType.Annual);
 
@@ -138,14 +146,6 @@ const Body = () => {
     </div>
   );
 };
-
-interface IPricingPageProps {
-  plans: {
-    monthly: UIRatePlan[];
-    annually: UIRatePlan[];
-  };
-}
-type NextPricingPage = NextPage<IPricingPageProps>;
 
 const Pricing: NextPricingPage = ({ plans }) => {
   return (
