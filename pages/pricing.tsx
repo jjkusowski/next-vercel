@@ -1,19 +1,24 @@
+import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import Layout from "../components/Layout";
 import usePageData from "../hooks/usePageData";
+import {
+  getProductCatalog,
+  getRatePlansByPlanType,
+  getSanitizedRatePlans,
+  PlanName,
+  PlanType,
+  sortPlansByPrice,
+  UIRatePlan,
+} from "../lib/subscriptions";
 import PageContext from "../state/PageContext";
 
-enum PlanType {
-  Annual = "annually",
-  Monthly = "monthly",
-}
-
 const uiKeyNameMap = {
-  free: "Free",
-  starter: "Starter",
-  business: "Business",
-  enterprise: "Enterprise",
+  [PlanName.FREE]: "Free",
+  [PlanName.STARTER]: "Starter",
+  [PlanName.BUSINESS]: "Business",
+  [PlanName.ENTERPRISE]: "Enterprise",
 };
 
 const planTypeStringMap = {
@@ -22,20 +27,44 @@ const planTypeStringMap = {
 };
 
 const ctaStringMap = {
-  free: "Get Started",
-  enterprise: "Contact Sales",
+  [PlanName.FREE]: "Get Started",
+  [PlanName.ENTERPRISE]: "Contact Sales",
   DEFAULT: "Buy Now",
 };
 
-export const getServerSideProps = async (context) => {
-  const res = await fetch(`http://localhost:3000/api/pricing`);
-  const plans = await res.json();
+export const getServerSideProps: GetServerSideProps = async () => {
+  const catalog = await getProductCatalog();
+
+  const allPlans = getSanitizedRatePlans(catalog);
+
+  const freePlan = getRatePlansByPlanType(allPlans, PlanType.Free);
+
+  const monthlyPlans = [
+    ...freePlan,
+    ...getRatePlansByPlanType(allPlans, PlanType.Monthly),
+  ];
+
+  const annualPlans = [
+    ...freePlan,
+    ...getRatePlansByPlanType(allPlans, PlanType.Annual),
+  ];
+
+  const plans = {
+    monthly: sortPlansByPrice(monthlyPlans),
+    annually: sortPlansByPrice(annualPlans),
+  };
 
   return {
     props: {
       plans,
     },
   };
+};
+
+const getPricePretty = (price) => {
+  if (price === 0) return price;
+
+  return price.toFixed(2);
 };
 
 const Body = () => {
@@ -62,19 +91,24 @@ const Body = () => {
             onChange={togglePlanType}
           />
           <label htmlFor="plantype" className="ml-2">
-            Bill {planTypeStringMap[planType]}
+            Bill {planTypeStringMap.monthly}
           </label>
         </div>
       </div>
       <div className="grid w-full grid-cols-4">
         {plans[planType].map((plan) => {
+          const price =
+            planType === PlanType.Annual ? plan.price / 12 : plan.price;
+
+          const prettyPrice = getPricePretty(price);
+
           return (
             <div
               key={plan.sku}
               className="flex flex-col items-center justify-center"
             >
               <div>{uiKeyNameMap[plan.uiKey]}</div>
-              <div>${plan.price}</div>
+              <div>${prettyPrice}</div>
               {/* mocked buttons */}
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a href="#" className="btn-blue">
@@ -83,6 +117,15 @@ const Body = () => {
             </div>
           );
         })}
+        <div className="flex flex-col items-center justify-center">
+          <div>{uiKeyNameMap.enterprise}</div>
+          <div>Plans for businesses that need a custom Webex experience.</div>
+          {/* mocked buttons */}
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a href="#" className="btn-blue">
+            {ctaStringMap.enterprise}
+          </a>
+        </div>
       </div>
       <div className="grid w-full grid-rows-6 gap-4">
         <div className="h-20">Plan Details...</div>
@@ -96,7 +139,15 @@ const Body = () => {
   );
 };
 
-const Pricing = ({ plans }) => {
+interface IPricingPageProps {
+  plans: {
+    monthly: UIRatePlan[];
+    annually: UIRatePlan[];
+  };
+}
+type NextPricingPage = NextPage<IPricingPageProps>;
+
+const Pricing: NextPricingPage = ({ plans }) => {
   return (
     <PageContext.Provider value={{ plans }}>
       <Head>
