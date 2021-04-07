@@ -1,3 +1,12 @@
+// TODO: refactor to TS (weird issue with modules and importing to next.config.js for some reason)
+/**
+  TODO
+  create type for SUPPORTED_LOCALES like so:
+  interface LocaleTag {
+    [key:string]: { standard: string, underscore: string; }
+  }
+ */
+
 const SUPPORTED_LOCALES = {
   // AU: "en-AU",
   US: "en-US",
