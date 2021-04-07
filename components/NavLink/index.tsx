@@ -6,12 +6,7 @@ interface INavLinkProps {
   hoverClass?: string;
 }
 
-const onClickHandlers = {
-  "join-meeting": (e) => {
-    e.preventDefault();
-    alert("clicked!");
-  },
-};
+const onClickHandlers = {};
 
 const nullClick = (e) => {
   e.preventDefault();
@@ -31,7 +26,7 @@ const NavLink = (props: INavLinkProps): JSX.Element => {
 
   const anchorProps = vanityUrl
     ? {
-        onClick: clickHandler,
+        onClick: (e) => clickHandler(e),
       }
     : {};
 

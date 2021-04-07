@@ -10,6 +10,7 @@ import { INavUIProps, NavStates } from "./interfaces";
 import links from "../../common/layouts/links";
 import { LocaleKey } from "../../common/layouts/interfaces";
 import NavPopup from "../NavPopup";
+import useCurrentLocale from "../../hooks/useCurrentLocale";
 
 const NavListItem = ({ children = null, classes = "" }) => (
   <li
@@ -23,6 +24,7 @@ const NavListItem = ({ children = null, classes = "" }) => (
 
 const NavItems = () => {
   const { formatMessage } = useIntl();
+  const { localeUnderscore } = useCurrentLocale();
 
   return (
     <>
@@ -82,9 +84,8 @@ const NavItems = () => {
       <NavListItem>
         <NavLink
           label={formatMessage(messages.join)}
-          href="#"
+          href={formatMessage(links.joinMeeting, { lang: localeUnderscore })}
           id="join-meeting"
-          vanityUrl
         />
       </NavListItem>
       <NavListItem>
