@@ -260,6 +260,7 @@ export default defineMessages({
   [Keys.JoinMeeting]: {
     id: getId(Keys.JoinMeeting),
     defaultMessage:
+      // TODO: figure out where this comes from and remove fragile hardcode
       "https://signin.webex.com/join?surl=https%3A%2F%2Fsignin.webex.com%2Fcollabs%2F%23%2Fmeetings%2Fjoinbynumber%3F&language={lang}#/meetings/joinbynumber?TrackID=&hbxref=&goid=attend-meeting",
   },
 });
