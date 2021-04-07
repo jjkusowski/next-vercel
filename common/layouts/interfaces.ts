@@ -45,6 +45,7 @@ export enum LocaleKey {
   Partners = "partners",
   HelpCenter = "helpCenter",
   JoinTest = "joinTest",
+  JoinMeeting = "joinMeeting",
   OnlineClasses = "onlineClasses",
   OnlineClasses_Description = "onlineClassesDesc",
   Blog = "blog",

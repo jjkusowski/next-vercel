@@ -17,6 +17,11 @@ const SUPPORTED_LOCALES = {
   // UK: "en-GB",
 };
 
+const SUPPORTED_LOCALES_UNDERSCORE = {
+  [SUPPORTED_LOCALES.US]: "en_US",
+  [SUPPORTED_LOCALES.ES]: "es_ES",
+};
+
 const locales = Object.values(SUPPORTED_LOCALES);
 
 const localeKeys = Object.keys(SUPPORTED_LOCALES);
@@ -31,10 +36,20 @@ const localeKeyLookup = Object.entries(SUPPORTED_LOCALES).reduce(
   {}
 );
 
+const localeLookupUnderscore = Object.entries(
+  SUPPORTED_LOCALES_UNDERSCORE
+).reduce((localeMap, [localeKey, localeVal]) => {
+  // eslint-disable-next-line no-param-reassign
+  localeMap[localeKey] = localeVal;
+
+  return localeMap;
+}, {});
+
 module.exports = {
   locales,
   localeKeys,
   localeKeyLookup,
+  localeLookupUnderscore,
   defaultLocale: SUPPORTED_LOCALES.US,
   domains: [
     {
