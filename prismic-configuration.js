@@ -12,3 +12,7 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
 // Client method to query documents from the Prismic repo
 export const Client = (req = null) =>
   Prismic.client(apiEndpoint, createClientOptions(req));
+
+export const linkResolver = (doc) => {
+  return `/${doc.uid}`;
+};

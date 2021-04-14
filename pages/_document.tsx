@@ -7,6 +7,11 @@ import Document, {
   DocumentInitialProps,
 } from "next/document";
 import Analytics from "../components/Analytics";
+import { apiEndpoint } from "../prismic-configuration";
+
+const prismicRepoName = /([a-zA-Z0-9-]+)?(\.cdn)?\.prismic\.io/.exec(
+  apiEndpoint
+)[1];
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -39,6 +44,11 @@ class MyDocument extends Document {
           <link
             rel="stylesheet"
             href="https://cdn.snipcart.com/themes/v3.0.30/default/snipcart.css"
+          />
+          <script
+            async
+            defer
+            src={`//static.cdn.prismic.io/prismic.js?repo=${prismicRepoName}&new=true`}
           />
         </Head>
         <body>
