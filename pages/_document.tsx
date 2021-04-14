@@ -61,6 +61,7 @@ class MyDocument extends Document {
           />
           <Main />
           <NextScript />
+          {/* TODO: conditionally add this when NOT in production env */}
           <script
             async
             src="https://cdn.snipcart.com/themes/v3.0.30/default/snipcart.js"
