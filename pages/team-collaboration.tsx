@@ -10,11 +10,15 @@ import usePageBodyData from "../hooks/usePageBodyData";
 import Text from "../components/Text";
 import { PageTypes } from "../common/interfaces";
 
-export const getStaticProps: GetStaticProps = async () => {
-  const restQuery = Prismic.getApi("https://webex.cdn.prismic.io/api/v2").then(
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { preview, previewData } = context;
+
+  const ref = preview ? previewData.ref : null;
+
+  const query = Prismic.getApi("https://webex.cdn.prismic.io/api/v2").then(
     (api) => {
-      return api.getSingle(PageTypes.TeamCollab).then(async (doc) => {
-        const { data } = await api.getByID(doc.data.signup_form.id);
+      return api.getSingle(PageTypes.TeamCollab, { ref }).then(async (doc) => {
+        const { data } = await api.getByID(doc.data.signup_form.id, { ref });
 
         const finalDoc = {
           ...doc,
@@ -29,7 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   );
 
-  const { data } = await restQuery;
+  const { data } = await query;
 
   return {
     props: {

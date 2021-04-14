@@ -19,11 +19,13 @@ import Help from "../components/Help";
 import usePrismicPageData from "../hooks/usePrismicPageData";
 
 export const getStaticProps: PrismicPageStaticProps = async (context) => {
-  const { locale } = context;
+  const { locale, preview, previewData } = context;
+  const ref = preview ? previewData.ref : null;
   const restQuery = Prismic.getApi("https://webex.cdn.prismic.io/api/v2").then(
     async (api) => {
       const doc = await api.getByUID("info", "accessibility", {
         lang: locale.toLowerCase(),
+        ref,
       });
 
       return doc;
